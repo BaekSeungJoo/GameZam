@@ -76,7 +76,7 @@ public class PlayerMove : MonoBehaviour
                 animator.SetBool("isJump", false);
 
         //½ºÅÏ µô·¹ÀÌ
-        if (!manager.GetStun())
+        if (manager.GetStun())
         {
             timer += Time.deltaTime;
             if(timer > manager.GetStunTime())
