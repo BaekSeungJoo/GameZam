@@ -21,7 +21,6 @@ public class Obstacle_Light_Trigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("닿았나?");
             rb.gravityScale = 1;  // 플레이어와 충돌 시 중력을 1로 설정하여 떨어지게 함
         }
     }

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 9196370597436012253}
   - component: {fileID: 977518295305835008}
   m_Layer: 0
-  m_Name: CFXR3 Hit Misc F Smoke
+  m_Name: Effect_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
