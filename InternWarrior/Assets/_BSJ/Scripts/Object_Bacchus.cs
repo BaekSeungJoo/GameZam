@@ -14,8 +14,11 @@ public class Object_Bacchus : MonoBehaviour
     public float flySpeed = 5f;
 
     [Header("이펙트")]
-    public Transform effectPool;
-    private ParticleSystem collision_effect;
+    [Header("성공")]
+    public VFXPoolObjType good_VfxType;
+
+    [Header("실패")]
+    public VFXPoolObjType bad_VfxType;
 
     private void Update()
     {
@@ -48,13 +51,10 @@ public class Object_Bacchus : MonoBehaviour
         // 피곤한 회사원에 닿았을 경우
         if (collision.gameObject.CompareTag("TiredWorker"))
         {
-            // 성공 이펙트
-            collision_effect = effectPool.GetChild(1).GetComponent<ParticleSystem>();
-            if (collision_effect != null)
-            {
-                collision_effect.transform.position = this.transform.position;
-                collision_effect.Play();
-            }
+            // 타격 성공 이펙트 콜
+            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(good_VfxType);
+            hitVFX.SetActive(true);
+            hitVFX.transform.position = this.transform.position;
 
             // TODO : 플레이어 체력 회복
             print("박카스 투척 : 플레이어 체력 회복");
@@ -73,13 +73,10 @@ public class Object_Bacchus : MonoBehaviour
         // 그 외에 닿았을 경우
         else
         {
-            // 이펙트
-            collision_effect = effectPool.GetChild(0).GetComponent<ParticleSystem>();
-            if (collision_effect != null)
-            {
-                collision_effect.transform.position = this.transform.position;
-                collision_effect.Play();
-            }
+            // 타격 실패 이펙트 콜
+            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(bad_VfxType);
+            hitVFX.SetActive(true);
+            hitVFX.transform.position = this.transform.position;
 
             // 장애물 삭제
             Destroy(this.gameObject);

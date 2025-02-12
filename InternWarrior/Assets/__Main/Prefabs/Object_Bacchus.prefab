@@ -101,7 +101,8 @@ MonoBehaviour:
   rotationSpeed: 720
   flyDirection: {x: 1, y: 0, z: 0}
   flySpeed: 15
-  effectPool: {fileID: 0}
+  good_VfxType: 1
+  bad_VfxType: 0
 --- !u!58 &5319747595555529082
 CircleCollider2D:
   m_ObjectHideFlags: 0

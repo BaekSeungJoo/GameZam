@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Obstacle_Light : MonoBehaviour
 {
-    public Transform effectPool;
+    [Header("이펙트")]
+    public VFXPoolObjType bad_VfxType;
 
     private GameObject obstacle;
-    private ParticleSystem collision_effect;
 
     private void Start()
     {
@@ -18,13 +18,10 @@ public class Obstacle_Light : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // 이펙트
-            collision_effect = effectPool.GetChild(0).GetComponent<ParticleSystem>();
-            if (collision_effect != null)
-            {
-                collision_effect.transform.position = this.transform.position;
-                collision_effect.Play();
-            }
+            // 타격 성공 이펙트 콜
+            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(bad_VfxType);
+            hitVFX.SetActive(true);
+            hitVFX.transform.position = this.transform.position;
 
             // TODO : 플레이어 HP 닳는 로직
             print("플레이어 hp -1");
