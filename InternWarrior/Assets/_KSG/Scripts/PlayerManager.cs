@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool isStunning = false;
+    private float stunTime = 0.0f;
+
+    public void SetStun(bool stun)
     {
-        
+        isStunning = stun;
+    }
+    public bool GetStun()
+    {
+        return isStunning;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetStunTime(float time)
     {
-        
+        stunTime = time;
+    }
+    public float GetStunTime()
+    {
+        return stunTime;
     }
 }
