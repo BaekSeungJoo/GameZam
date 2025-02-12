@@ -7,19 +7,16 @@ public class PlayerManager : MonoBehaviour
     private bool isStunning = false;
     private float stunTime = 0.0f;
 
-    public void SetStun(bool stun)
+    public void SetStun(float time)
     {
-        isStunning = stun;
+        isStunning = true;
+        stunTime += time;
     }
     public bool GetStun()
     {
         return isStunning;
     }
 
-    public void SetStunTime(float time)
-    {
-        stunTime = time;
-    }
     public float GetStunTime()
     {
         return stunTime;
