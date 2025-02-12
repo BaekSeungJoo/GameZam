@@ -17,7 +17,18 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int amount)
     {
         HP = Mathf.Min(HP + amount, maxHP);
-        Debug.Log("체력 회복됨" + HP);
+        Debug.Log("체력 회복됨" + amount);
+        Debug.Log("현재체력" + HP);
     }
 
+    public void Damage(int amount)
+    {
+        HP -= amount;
+        if (HP < 0)
+        {
+            HP = 0;
+        }
+        Debug.Log("체력 까임" + amount);
+        Debug.Log("현재체력" + HP);
+    }
 }
