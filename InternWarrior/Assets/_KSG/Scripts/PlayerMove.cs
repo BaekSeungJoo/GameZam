@@ -13,11 +13,11 @@ public class PlayerMove : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigid = player.GetComponent<Rigidbody2D>();
-        spriteRenderer = player.GetComponent <SpriteRenderer>();
+        spriteRenderer = player.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,11 +27,15 @@ public class PlayerMove : MonoBehaviour
 
         playerRigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
-        if (playerRigid.velocity.x > maxSpeed) {
+        if (playerRigid.velocity.x > maxSpeed)
+        {
             playerRigid.velocity = new Vector2(maxSpeed, playerRigid.velocity.y);
         }
         else if (playerRigid.velocity.x < -maxSpeed)
+        {
             playerRigid.velocity = new Vector2(-maxSpeed, playerRigid.velocity.y);
+        }
+
     }
 
     private void Update()
@@ -41,5 +45,8 @@ public class PlayerMove : MonoBehaviour
             playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
             Debug.Log("Jump!");
         }
+
+        if (Input.GetButtonDown("Horizontal"))
+            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
     }
 }
