@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
         playerRigid = player.GetComponent<Rigidbody2D>();
         spriteRenderer = player.GetComponent<SpriteRenderer>();
         animator = player.GetComponent<Animator>();
+        manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class PlayerMove : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
 
-        if (manager.GetStun())
+        if (!manager.GetStun())
         {
             playerRigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
@@ -47,12 +48,16 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if(!manager.GetStun())
         {
-            playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
-            animator.SetBool("isJump", true);
-            Debug.Log("Jump!");
+            //점프하기
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
+                animator.SetBool("isJump", true);
+            }
         }
+        
 
         if (Input.GetButton("Horizontal"))
         {
@@ -71,7 +76,7 @@ public class PlayerMove : MonoBehaviour
                 animator.SetBool("isJump", false);
 
         //스턴 딜레이
-        if (manager.GetStun())
+        if (!manager.GetStun())
         {
             timer += Time.deltaTime;
             if(timer > manager.GetStunTime())
