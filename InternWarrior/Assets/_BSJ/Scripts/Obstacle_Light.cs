@@ -5,7 +5,7 @@ using UnityEngine;
 public class Obstacle_Light : MonoBehaviour
 {
     [Header("이펙트")]
-    public VFXPoolObjType bad_VfxType;
+    public VFXPoolObjType VfxType;
 
     private GameObject obstacle;
 
@@ -19,7 +19,7 @@ public class Obstacle_Light : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // 타격 성공 이펙트 콜
-            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(bad_VfxType);
+            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(VfxType);
             hitVFX.SetActive(true);
             hitVFX.transform.position = this.transform.position;
 
