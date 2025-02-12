@@ -6,6 +6,7 @@ public class KnockbackMob : MonoBehaviour
 {
     public float knockbackForce = 50f; // 밀어내는 힘
     public float disableMovementTIme = 0.5f; // 이동 정지 시간
+    public float stunTime = 1.0f;
 
     PlayerManager playerManager;
 
@@ -15,7 +16,7 @@ public class KnockbackMob : MonoBehaviour
         {
             // 플레이어 스턴
             playerManager.SetStun(true);
-            playerManager.SetStunTime(3.0f);
+            playerManager.SetStunTime(stunTime);
 
 
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
