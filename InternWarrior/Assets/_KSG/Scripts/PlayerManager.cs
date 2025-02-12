@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SetStunTime(float time)
     {
-        stunTime += time;
+        stunTime = time;
     }
     public float GetStunTime()
     {

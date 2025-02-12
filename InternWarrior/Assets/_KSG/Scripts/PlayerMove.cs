@@ -56,20 +56,41 @@ public class PlayerMove : MonoBehaviour
             {
                 if (animator.GetBool("isJump"))
                     playerRigid.velocity = Vector2.zero;
-                else
-                    animator.SetBool("isJump", true);
 
                 playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
             }
+            
+            // 왼쪽으로 가면 스프라이트 뒤집기
+            if (Input.GetButton("Horizontal"))
+            {
+                spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+            }
+
+            // 움직이면 달리기 애니메이션 재생
+            animator.SetBool("isRun", Input.GetAxisRaw("Horizontal") != 0);
+
+            // 키를 띄우면 달리기 애니메이션 중지
+            if(Input.GetButtonUp("Horizontal"))
+                animator.SetBool("isRun", false);
+        }
+
+        //점프 속도확인후 애니메이션 재생
+        if (playerRigid.velocity.y > 0.5f)
+        {
+            animator.SetBool("isJumpUp", true);
+            animator.SetBool("isJumpDown", false);
+        }
+        else if (playerRigid.velocity.y < -0.5f)
+        {
+            animator.SetBool("isJumpUp", false);
+            animator.SetBool("isJumpDown", true);
+        }  
+        else
+        {
+            animator.SetBool("isJumpUp", false);
+            animator.SetBool("isJumpDown", false);
         }
         
-
-        if (Input.GetButton("Horizontal"))
-        {
-            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
-        }
-
-        animator.SetBool("isRun", Input.GetAxisRaw("Horizontal") != 0);
 
         //땅에 있는지 확인
         Debug.DrawRay(playerRigid.position, Vector2.down, Color.cyan);
@@ -77,15 +98,18 @@ public class PlayerMove : MonoBehaviour
         RaycastHit2D rayHit = Physics2D.Raycast(playerRigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
 
         if (rayHit.collider != null)
-            if (rayHit.distance < 0.5f && animator.GetBool("isJump"))
+            if (rayHit.distance > 0.5f)
             {
-                animator.SetBool("isJump", false);
-                Debug.Log(rayHit.collider.gameObject.name);
+                animator.SetBool("isJump", true);
+                //Debug.Log(rayHit.collider.gameObject.name);
             }
 
         //스턴 딜레이
         if (manager.GetStun())
         {
+            // 달리기 상태 해제
+            animator.SetBool("isRun", false);
+
             timer += Time.deltaTime;
             if(timer > manager.GetStunTime())
             {
