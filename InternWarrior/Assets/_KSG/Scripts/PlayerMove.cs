@@ -55,9 +55,9 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (animator.GetBool("isJump"))
-                    animator.SetBool("isJump", true);
-                else
                     playerRigid.velocity = Vector2.zero;
+                else
+                    animator.SetBool("isJump", true);
 
                 playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
             }
@@ -74,11 +74,14 @@ public class PlayerMove : MonoBehaviour
         //땅에 있는지 확인
         Debug.DrawRay(playerRigid.position, Vector2.down, Color.cyan);
 
-        RaycastHit2D rayHit = Physics2D.Raycast(playerRigid.position, Vector2.down, 1);
+        RaycastHit2D rayHit = Physics2D.Raycast(playerRigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
 
         if (rayHit.collider != null)
             if (rayHit.distance < 0.5f && animator.GetBool("isJump"))
+            {
                 animator.SetBool("isJump", false);
+                Debug.Log(rayHit.collider.gameObject.name);
+            }
 
         //스턴 딜레이
         if (manager.GetStun())
