@@ -7,10 +7,17 @@ public class KnockbackMob : MonoBehaviour
     public float knockbackForce = 50f; // 밀어내는 힘
     public float disableMovementTIme = 0.5f; // 이동 정지 시간
 
+    PlayerManager playerManager;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            // 플레이어 스턴
+            playerManager.SetStun(true);
+            playerManager.SetStunTime(3.0f);
+
+
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
 
 
@@ -35,7 +42,7 @@ public class KnockbackMob : MonoBehaviour
 
     void Start()
     {
-
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
