@@ -18,6 +18,7 @@ public class Obstacle_Light : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            // ¿Ã∆Â∆Æ
             collision_effect = effectPool.GetChild(0).GetComponent<ParticleSystem>();
             if (collision_effect != null)
             {
