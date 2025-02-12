@@ -59,6 +59,13 @@ public class Object_Bacchus : MonoBehaviour
             // TODO : 플레이어 체력 회복
             print("박카스 투척 : 플레이어 체력 회복");
 
+            // 피곤한 경비원 사망 모션
+            Enemy_TiredWorker enemy_TiredWorker = collision.gameObject.transform.GetComponent<Enemy_TiredWorker>();
+            if (enemy_TiredWorker != null)
+            {
+                enemy_TiredWorker.Dead_Worker();
+            }
+
             // 장애물 삭제
             Destroy(this.gameObject);
         }
