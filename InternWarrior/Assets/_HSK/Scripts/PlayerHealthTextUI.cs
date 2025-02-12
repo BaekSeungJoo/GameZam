@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerHealthTextUI : MonoBehaviour
 {
+    [Header("플레이어를 참조")]
     public PlayerHealth playerHealth;
     public TextMeshProUGUI healthText;
 
