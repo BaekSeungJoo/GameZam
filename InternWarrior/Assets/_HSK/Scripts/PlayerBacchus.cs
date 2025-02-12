@@ -11,7 +11,7 @@ public class PlayerBacchus : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        haveBacchus = 0; //초기 소지량    
+        haveBacchus = 0; // 초기 소지량    
     }
 
     public void GetBacchus(int amount)

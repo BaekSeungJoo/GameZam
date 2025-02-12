@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Bacchus : MonoBehaviour
+public class Item_Coin : MonoBehaviour
 {
-    public int BacchusAmount = 1; // 획득량
+    public int healAmount = 1; // 회복량
 
     private void Start()
     { }
@@ -16,14 +17,29 @@ public class Bacchus : MonoBehaviour
     {
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
-            PlayerBacchus playerBacchus = other.GetComponent<PlayerBacchus>();
-            if (playerBacchus != null)
+            // 코인 획득하는 로직
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                playerBacchus.GetBacchus(BacchusAmount);
+                playerHealth.Heal(healAmount);
             }
+
             Destroy(gameObject);
         }
-
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
