@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
 
+        //플레이어 좌우움직임
         if (!manager.GetStun())
         {
             playerRigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
@@ -53,8 +54,12 @@ public class PlayerMove : MonoBehaviour
             //점프하기
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                if (animator.GetBool("isJump"))
+                    animator.SetBool("isJump", true);
+                else
+                    playerRigid.velocity = Vector2.zero;
+
                 playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
-                animator.SetBool("isJump", true);
             }
         }
         
