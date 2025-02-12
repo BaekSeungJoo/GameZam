@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-
     public float maxSpeed = 1.0f;
     public float jumpScale = 1.0f;
+    public GameObject weapon;
 
     GameObject player;
     Rigidbody2D playerRigid;
@@ -118,5 +118,11 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        // 박카스 투척
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            GameObject bullet = Instantiate(weapon, player.transform);
+            bullet.transform.parent = null;
+        }
     }
 }

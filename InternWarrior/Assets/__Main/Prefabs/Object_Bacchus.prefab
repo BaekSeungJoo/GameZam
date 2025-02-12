@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6686501045701882900}
   - component: {fileID: 4916944188850277269}
   - component: {fileID: 5319747595555529082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Object_Bacchus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2336381696580287695}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.23, y: -2.24, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("멀티점프")]
+    public bool multiJump = true;
+
     [Header("플레이어 현재HP")]
     public int playerHp = 10;
 
