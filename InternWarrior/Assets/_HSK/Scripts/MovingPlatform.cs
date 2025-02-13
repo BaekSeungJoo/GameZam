@@ -5,11 +5,17 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class MovingPlatform : MonoBehaviour
 {
+    
     public enum MovementType { Horizontal, Vertical } // 플랫폼 이동 방식
+
+    [Header("방향")]
     public MovementType movementType = MovementType.Horizontal;
 
+    [Header("이동속도")]
     public float speed = 2f; // 플랫폼 기본 이동 속도
+    [Header("이동거리")]
     public float moveDistance = 3f; // 이동 범위
+
 
     private Vector2 startPos;
     private int direction = 1; // 이동 방향 (-1이면 반대 방향)

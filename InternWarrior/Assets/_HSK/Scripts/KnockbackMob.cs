@@ -5,15 +5,20 @@ using UnityEngine;
 
 public class KnockbackMob : MonoBehaviour
 {   //넉백 관련
+    [Header("밀어내는 힘")]
     public float knockbackForce = 50f; // 밀어내는 힘
-    public float disableMovementTIme = 0.5f; // 이동 정지 시간
+    [Header("스턴 시간(초)")]
     public float stunTime = 1.0f;
     //이동 관련
+    [Header("이동 속도")]
     public float speed = 2f; // 이동속도
+    [Header("이동 거리")]
     public float moveDistance = 3f; //이동 범위
 
     //멈추게 하는거
+    [Header("활성화 시간(초)")]
     public float moveTime = 3f;
+    [Header("비활성화 시간(초)")]
     public float stopTime = 2f;
 
 

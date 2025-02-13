@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SofaJump : MonoBehaviour
 {
+    [Header("점프 배수")]
     public float jumpMultiplier = 2.0f; //점프 배수
     private BoxCollider2D sofaCollider;
 
