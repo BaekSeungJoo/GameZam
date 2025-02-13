@@ -15,13 +15,14 @@ public class PlayerMove : MonoBehaviour
     int currntJump = 0;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigid = player.GetComponent<Rigidbody2D>();
         spriteRenderer = player.GetComponent<SpriteRenderer>();
         animator = player.GetComponent<Animator>();
         manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        manager.SetPlayerSpeed(maxSpeed);
     }
 
     // Update is called once per frame

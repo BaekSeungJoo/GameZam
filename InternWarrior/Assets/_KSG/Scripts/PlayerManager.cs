@@ -25,7 +25,16 @@ public class PlayerManager : MonoBehaviour
     private bool isStunning = false;
     private float stunTime = 0.0f;
     private string weaponDir;
+    private float moveSpeed;
 
+    public void SetPlayerSpeed(float value)
+    {
+        moveSpeed = value;
+    }
+    public float GetPlayerSpeed()
+    {
+        return moveSpeed;
+    }
     public void SetWeaponDir(string dir)
     {
         weaponDir = dir;
