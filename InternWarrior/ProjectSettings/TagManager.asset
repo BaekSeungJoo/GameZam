@@ -10,6 +10,7 @@ TagManager:
   - TiredWorker
   - Ground
   - ClearDoor
+  - Sofa
   layers:
   - Default
   - TransparentFX

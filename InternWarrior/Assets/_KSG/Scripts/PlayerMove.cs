@@ -192,6 +192,11 @@ public class PlayerMove : MonoBehaviour
             // 점프카운트 초기화
             currntJump = 0;
         }
+        else if(collision.gameObject.CompareTag("Sofa"))
+        {
+            // 최대높이 현재치로 초기화
+            maxYHeight = transform.position.y;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
