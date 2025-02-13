@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 19373358}
   - component: {fileID: 19373357}
   - component: {fileID: 19373356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: movingBox (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: 496646405}
   - component: {fileID: 496646404}
   - component: {fileID: 496646403}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: movingBox
   m_TagString: Ground
   m_Icon: {fileID: 0}
