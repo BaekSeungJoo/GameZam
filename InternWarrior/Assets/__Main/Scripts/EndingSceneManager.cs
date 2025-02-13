@@ -7,24 +7,18 @@ using UnityEngine.UI;
 
 public class EndingSceneManager : MonoBehaviour
 {
-    [Header("ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ∆∞")]
-    public Button gameQuitButton;
-
-    [Header("ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ∆∞")]
-    public Button goToMainButton;
+    [Header("≈¨∏ÆæÓ ∏ﬁ¿Œ¿∏∑Œ")]
+    public Button Clear_GoToMainButton;
 
     private void Start()
     {
-        // ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ∆∞
-        gameQuitButton.onClick.AddListener(() => 
+        // ∏ﬁ¿Œ¿∏∑Œ
+        Clear_GoToMainButton.onClick.AddListener(() =>
         {
-            DOTween.KillAll();
-            Application.Quit();
-        });
+            // »ø∞˙¿Ω
+            SoundController.PlaySFXSound("ui-button");
 
-        // ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ∆∞
-        goToMainButton.onClick.AddListener(() => 
-        {
+            // ∏ﬁ¿Œ æ¿¿∏∑Œ ¿Ãµø (∆Æ¿© ¡¶∞≈)
             DOTween.KillAll();
             SceneManager.LoadScene("0 Title");
         });
