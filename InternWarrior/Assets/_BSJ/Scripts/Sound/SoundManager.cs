@@ -125,6 +125,7 @@ public class SoundManager : MonoBehaviour
         {
             musicSource.clip = clip;
             musicSource.loop = true;  // 무한 루프 설정
+            musicSource.volume = 0.05f;
             musicSource.Play();
         }
     }

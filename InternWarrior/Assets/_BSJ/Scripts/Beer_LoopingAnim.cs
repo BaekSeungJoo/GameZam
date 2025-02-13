@@ -10,6 +10,8 @@ public class Beer_LoopingAnim : MonoBehaviour
     public float fireRate = 3f; // 발사 간격 (초)
     public float lifeTime = 5f;
 
+    AudioSource audioSource;
+
     private void Start()
     {
         AnimateScale();
@@ -33,6 +35,12 @@ public class Beer_LoopingAnim : MonoBehaviour
 
     private void Fire()
     {
+        // 버블 사운드
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         GameObject bubble = Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
         // 추가적인 발사 효과를 여기서 구현할 수 있습니다.
 

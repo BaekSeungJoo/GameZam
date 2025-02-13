@@ -10,8 +10,12 @@ public class LaserController : MonoBehaviour
     public Vector3 targetScale = new Vector3(2f, 7.5f, 1f); // 레이저 최종 스케일
     public float scaleDuration = 0.2f; // 스케일 애니메이션 시간
 
+    AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         StartCoroutine(LaserRoutine());
     }
 
@@ -19,6 +23,12 @@ public class LaserController : MonoBehaviour
     {
         while (true)
         {
+            // 레이저 사운드
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+
             // 레이저 활성화
             laserObject.SetActive(true);
 

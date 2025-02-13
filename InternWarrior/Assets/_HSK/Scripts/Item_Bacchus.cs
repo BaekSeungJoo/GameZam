@@ -25,6 +25,9 @@ public class Item_Bacchus : MonoBehaviour
         {
             isHit = true;
 
+            // 효과음
+            SoundController.PlaySFXSound("get");
+            
             // 박카스 획득하는 로직
             if (manager != null)
             {

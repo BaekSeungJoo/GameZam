@@ -10,6 +10,9 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
+        // 사운드
+        SoundController.PlayBGMSound("1-stage bgm");
+
         // 초기 상태 설정
         for (int i = 0; i < objects.Length; i++)
         {
@@ -27,13 +30,16 @@ public class IntroManager : MonoBehaviour
 
     void SwitchObject()
     {
+        // 효과음
+        SoundController.PlaySFXSound("ui-button");
+
         // 타이틀 씬으로 이동
         if(currentIndex >= 2)
         {
             DOTween.KillAll();
             SceneManager.LoadScene("0 Title");
         }
-        
+
         else
         {
             // 현재 오브젝트 비활성화

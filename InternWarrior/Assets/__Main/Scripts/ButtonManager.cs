@@ -32,6 +32,9 @@ public class ButtonManager : MonoBehaviour
         // 일시정지 버튼
         stopButton.onClick.AddListener(() => 
         {
+            // 효과음
+            SoundController.PlaySFXSound("pause");
+
             // 게임 시간 멈추기
             Time.timeScale = 0;
 
@@ -42,6 +45,9 @@ public class ButtonManager : MonoBehaviour
         // 팝업 닫기 버튼
         closeButton.onClick.AddListener(() => 
         {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
+
             // 게임 시간 다시 흐르게
             Time.timeScale = 1;
 
@@ -52,6 +58,9 @@ public class ButtonManager : MonoBehaviour
         // 계속하기 버튼
         continueButton.onClick.AddListener(() =>
         {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
+
             // 게임 시간 다시 흐르게
             Time.timeScale = 1;
 
@@ -62,6 +71,9 @@ public class ButtonManager : MonoBehaviour
         // 게임 재시작 버튼
         restartButton.onClick.AddListener(() =>
         {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
+
             // 게임 시간 다시 흐르게
             Time.timeScale = 1;
 
@@ -76,6 +88,9 @@ public class ButtonManager : MonoBehaviour
         // 메인으로
         goToMainButton.onClick.AddListener(() =>
         {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
+
             // 게임 시간 다시 흐르게
             Time.timeScale = 1;
 

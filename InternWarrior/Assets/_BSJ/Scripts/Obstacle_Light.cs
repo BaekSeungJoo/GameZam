@@ -19,6 +19,9 @@ public class Obstacle_Light : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // 효과음
+        SoundController.PlaySFXSound("light");
+
         if (collision.gameObject.CompareTag("Player"))
         {
             // 타격 성공 이펙트 콜
