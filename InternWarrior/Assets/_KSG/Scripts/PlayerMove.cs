@@ -88,23 +88,23 @@ public class PlayerMove : MonoBehaviour
         RaycastHit2D rayHit = Physics2D.Raycast(playerRigid.position, Vector3.down, 20, LayerMask.GetMask("Platform"));
 
         if (rayHit.collider != null)
-            if (rayHit.distance > 0.6f)
+            if (rayHit.distance > 1.1f)
             {
                 animator.SetBool("isJump", true);
                 //Debug.Log(rayHit.collider.gameObject.name);
             }
-            else if(rayHit.distance < 0.6f && rayHit.collider.CompareTag("Ground") && animator.GetBool("isJump"))
+            else if(rayHit.distance < 1.1f && rayHit.collider.CompareTag("Ground"))
             {
                 animator.SetBool("isJump", false);
             }
 
         //점프 속도확인후 애니메이션 재생
-        if (playerRigid.velocity.y > 1f && rayHit.distance > 0.6f)
+        if (playerRigid.velocity.y > 1f && animator.GetBool("isJump"))
         {
             animator.SetBool("isJumpUp", true);
             animator.SetBool("isJumpDown", false);
         }
-        else if (playerRigid.velocity.y < -1f && rayHit.distance > 0.6f)
+        else if (playerRigid.velocity.y < -1f && animator.GetBool("isJump"))
         {
             animator.SetBool("isJumpUp", false);
             animator.SetBool("isJumpDown", true);
