@@ -7,13 +7,6 @@ public class Obstacle_Light : MonoBehaviour
     [Header("이펙트")]
     public VFXPoolObjType VfxType;
 
-    private GameObject obstacle;
-
-    private void Start()
-    {
-        obstacle = this.transform.parent.gameObject;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -27,7 +20,18 @@ public class Obstacle_Light : MonoBehaviour
             print("플레이어 hp -1");
 
             // 장애물 삭제
-            obstacle.SetActive(false);
+            this.gameObject.SetActive(false);
+        }
+
+        else
+        {
+            // 타격 실패 이펙트 콜
+            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(VfxType);
+            hitVFX.SetActive(true);
+            hitVFX.transform.position = this.transform.position;
+
+            // 장애물 삭제
+            Destroy(this.gameObject);
         }
     }
 }

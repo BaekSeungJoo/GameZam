@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item_Key : MonoBehaviour
 {
     PlayerManager playerManager;
+    bool isHit = false;
 
     private void Awake()
     {
@@ -13,8 +14,12 @@ public class Item_Key : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isHit) { return; }
+
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
+            isHit = true;
+
             // 키 획득하는 로직
             //print("키 획득했습니다.");
             playerManager.keyCount++;

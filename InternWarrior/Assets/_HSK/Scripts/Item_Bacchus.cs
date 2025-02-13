@@ -7,6 +7,7 @@ public class Item_Bacchus : MonoBehaviour
     public int BacchusAmount = 1; // 획득량
 
     PlayerManager manager;
+    bool isHit = false;
 
     private void Start()
     { 
@@ -18,9 +19,11 @@ public class Item_Bacchus : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isHit) { return; }
+
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
-            Destroy(gameObject);
+            isHit = true;
 
             // 박카스 획득하는 로직
             if (manager != null)
@@ -36,6 +39,8 @@ public class Item_Bacchus : MonoBehaviour
                 playerBacchus.GetBacchus(BacchusAmount);
             }
             */
+
+            Destroy(gameObject);
         }
 
     }

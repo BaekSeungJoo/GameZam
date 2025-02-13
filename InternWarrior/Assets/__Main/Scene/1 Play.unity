@@ -3190,10 +3190,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1754747621610756748, guid: 11b3e978fd093b746addc92f4f76246c, type: 3}
-      propertyPath: effectPool
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4365961838587070352, guid: 11b3e978fd093b746addc92f4f76246c, type: 3}
       propertyPath: m_Name
       value: Obstacle_Light
