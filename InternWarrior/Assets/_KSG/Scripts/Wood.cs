@@ -23,6 +23,9 @@ public class Wood : MonoBehaviour
         {
             if (!isActivated)
             {
+                // 효과음 재생
+                SoundController.PlaySFXSound("tree");
+
                 playerManager.SpawnTreeGuard();
                 isActivated = true;
 

@@ -130,9 +130,6 @@ public class PlayerMove : MonoBehaviour
         {
             // 달리기 상태 해제
             animator.SetBool("isRun", false);
-            
-            // 데미지 깜빡임
-            manager.TurnGreyForOneSecond();
 
             timer += Time.deltaTime;
             if(timer > manager.GetStunTime())
@@ -154,6 +151,9 @@ public class PlayerMove : MonoBehaviour
             //박카스 수량 확인
             if (manager.weaponCount > 0)
             {
+                // 효과음 재생
+                SoundController.PlaySFXSound("throwing");
+
                 manager.weaponCount--;
 
                 // UI 업데이트
@@ -169,6 +169,9 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            // 효과음 재생
+            SoundController.PlaySFXSound("Land");
+
             //점프카운트 초기화
             currntJump = 0;
         }
@@ -187,6 +190,9 @@ public class PlayerMove : MonoBehaviour
 
     private void Jump()
     {
+        // 효과음 재생
+        SoundController.PlaySFXSound("Jump");
+
         if (animator.GetBool("isJump"))
             playerRigid.velocity = Vector2.zero;
 

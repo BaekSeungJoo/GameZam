@@ -36,6 +36,9 @@ public class KnockbackMob : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // 효과음 재생
+            SoundController.PlaySFXSound("hit");
+
             Debug.Log("플레이어 충돌감지");
             // 플레이어 스턴
             playerManager.SetStun(true);

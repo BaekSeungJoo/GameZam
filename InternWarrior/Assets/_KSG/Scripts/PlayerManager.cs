@@ -17,8 +17,8 @@ public class PlayerManager : MonoBehaviour
     [Header("플레이어 최대HP")]
     public int playerMaxHp = 10;
 
-    [Header("데미지효과 재생시간")]
-    public float damageEffectTime = 1.0f;
+    [Header("스턴시 회색시간")]
+    public float stunEffectSec = 1.0f;
 
     [Header("박카스 현재갯수")]
     public int weaponCount = 0;
@@ -199,7 +199,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("현재체력" + playerHp);
 
         // 흑백으로 1초 변환
-        TurnGreyForOneSecond();
+        TurnGreyFlick();
 
         // UI 업데이트
         InitPlayUI();
@@ -208,7 +208,7 @@ public class PlayerManager : MonoBehaviour
         GameOverCheck();
     }
 
-     public void TurnGreyForOneSecond()
+     public void TurnGreyFlick()
     {
         StopAllCoroutines(); // 이전 코루틴 중지
         StartCoroutine(TurnGreyCoroutine());
@@ -234,10 +234,31 @@ public class PlayerManager : MonoBehaviour
         playerSpriteRenderer.color = originalColor;
     }
 
+    public void TurnGreyForOneSecond()
+    {
+        StartCoroutine(TurnGreyOneCoroutine());
+    }
+
+    private IEnumerator TurnGreyOneCoroutine()
+    {
+        Color greyColor = Color.grey;
+
+        // 흑백으로 변경
+        playerSpriteRenderer.color = greyColor;
+        yield return new WaitForSeconds(stunEffectSec);
+
+        // 원래 색깔로 복원
+        playerSpriteRenderer.color = originalColor;
+    }
+
+
 
     public void SetStun(bool stun)
     {
         isStunning = stun;
+
+        if(isStunning)
+            TurnGreyForOneSecond();
     }
     public bool GetStun()
     {

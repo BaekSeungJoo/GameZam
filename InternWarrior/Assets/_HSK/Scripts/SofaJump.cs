@@ -12,7 +12,7 @@ public class SofaJump : MonoBehaviour
     {
         if (other.CompareTag("Player")) // 플레이어 충돌 확인
         {
-
+            
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
             PlayerMove playerMove = other.GetComponent<PlayerMove>();
 
@@ -22,8 +22,10 @@ public class SofaJump : MonoBehaviour
                 float sofaTopY = sofaCollider.bounds.max.y; // 소파 최대 Y값
 
 
-                if(playerCenterY > sofaTopY) { 
-                    
+                if(playerCenterY > sofaTopY)
+                { 
+                // 효과음 재생
+                SoundController.PlaySFXSound("Jump");
 
                 float jumpForce = playerMove.jumpScale; // 플레이어 점프력 가져옴
                 playerRb.velocity = new Vector2(playerRb.velocity.x, 0); //현재 점프력을 0으로 변경
