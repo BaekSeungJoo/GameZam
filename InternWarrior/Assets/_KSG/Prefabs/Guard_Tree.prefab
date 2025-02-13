@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded1c36148a23f6499fa2d4deb568ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onlyVase: {fileID: 21300000, guid: ff978dbe8426170419c7bf260a6fb919, type: 3}
 --- !u!70 &7858067171832569320
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
