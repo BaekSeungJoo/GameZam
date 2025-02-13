@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a324f55f99dcd64e9ed561eece96564
+guid: f1d7c2f73244d0f4eba62d907240bbd0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,54 +93,15 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_idle_Sheet_0
+      name: ending_player_death_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -150,18 +111,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9daeab5c9e37dd43903a27bc7686bda
-      internalID: -2002453642
+      spriteID: 1be224bbbcda440468d8b79da196c853
+      internalID: 906908226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_idle_Sheet_1
+      name: ending_player_death_1
       rect:
         serializedVersion: 2
         x: 128
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -171,38 +132,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1705e1a66058f24489042517bc58d66
-      internalID: -1571112169
+      spriteID: 29615f69cfaa0514d939a0c5b51a3cdd
+      internalID: -706254596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_idle_Sheet_2
+      name: ending_player_death_2
       rect:
         serializedVersion: 2
         x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f82ef8cecaeeabf4985d2caa7c2caa17
-      internalID: 1129429349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_idle_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 128
         width: 128
         height: 128
@@ -213,56 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cac9f02ce65fb94ea7175d46786e46d
-      internalID: 1780194788
+      spriteID: d7a604eca29dd9a439a0cf6e7df53448
+      internalID: 1591498403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_idle_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c0a9b815137ac644b8618cf03562eb3
-      internalID: -483671535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_idle_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 185a37a9e61c5f24e9b18c3c5007ccf0
-      internalID: -533288768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_idle_Sheet_6
+      name: ending_player_death_3
       rect:
         serializedVersion: 2
         x: 0
@@ -276,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c619f3cdb4804447a97d04280b4bfb8
-      internalID: 1512174883
+      spriteID: ec9a1f7e293ed1e4697149b5141158df
+      internalID: 446468955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_idle_Sheet_7
+      name: ending_player_death_4
       rect:
         serializedVersion: 2
         x: 128
@@ -297,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72da631aa57d6ac4693e261d375d39b9
-      internalID: -1593896308
+      spriteID: 2861cf689d850e84caa5a1d74078950f
+      internalID: 1413985099
       vertices: []
       indices: 
       edges: []
@@ -314,14 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player_idle_Sheet_0: -2002453642
-      player_idle_Sheet_1: -1571112169
-      player_idle_Sheet_2: 1129429349
-      player_idle_Sheet_3: 1780194788
-      player_idle_Sheet_4: -483671535
-      player_idle_Sheet_5: -533288768
-      player_idle_Sheet_6: 1512174883
-      player_idle_Sheet_7: -1593896308
+      ending_player_death_0: 906908226
+      ending_player_death_1: -706254596
+      ending_player_death_2: 1591498403
+      ending_player_death_3: 446468955
+      ending_player_death_4: 1413985099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

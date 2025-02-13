@@ -33,6 +33,7 @@ public class PlayerMove : MonoBehaviour
         animator = player.GetComponent<Animator>();
         manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         manager.SetPlayerSpeed(maxSpeed);
+        animator.SetBool("isDead", false);
     }
 
     // Update is called once per frame
@@ -197,5 +198,12 @@ public class PlayerMove : MonoBehaviour
             playerRigid.velocity = Vector2.zero;
 
         playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
+    }
+
+    public void PlayerDead()
+    {
+        animator.SetBool("isDead", true);
+        manager.SetStun(true);
+        manager.SetStunTime(9999f);
     }
 }

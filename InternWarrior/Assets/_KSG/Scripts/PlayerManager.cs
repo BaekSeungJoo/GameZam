@@ -165,7 +165,7 @@ public class PlayerManager : MonoBehaviour
         ChangeWindow(alcholCurrent);
 
         // 게임 오버 체크
-        GameOverCheck();
+         StartCoroutine(GameOverCheck());
 
         // 취함 적용
         isAlchol = true;
@@ -205,7 +205,7 @@ public class PlayerManager : MonoBehaviour
         InitPlayUI();
 
         // 게임 오버 체크
-        GameOverCheck();
+         StartCoroutine(GameOverCheck());
     }
 
      public void TurnGreyFlick()
@@ -284,16 +284,19 @@ public class PlayerManager : MonoBehaviour
         playUIManager.Change_BacchusText(weaponCount);
         playUIManager.Show_CardKey(keyCount);
 
-        GameOverCheck();
+         StartCoroutine(GameOverCheck());
     }
 
     /// <summary>
     /// 게임 오버 체크
     /// </summary>
-    public void GameOverCheck()
+    public IEnumerator GameOverCheck()
     {
         if (playerHp <= 0 || alcholCurrent >= 5)
         {
+            player.GetComponent<PlayerMove>().PlayerDead();
+            yield return new WaitForSeconds(4.0f);
+
             gameManager.MoveScene_GameEnd();
         }
     }
