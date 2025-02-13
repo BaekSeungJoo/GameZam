@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 public class IntroManager : MonoBehaviour
 {
-    public GameObject[] objects; // 3ê°œì˜ ê²Œì„ ì˜¤ë¸Œì íŠ¸ë¥¼ ë°°ì—´ë¡œ ìºì‹±
+    public GameObject[] objects; // 3ê°œì˜ ê²Œì„ ?˜¤ë¸Œì ?Š¸ë¥? ë°°ì—´ë¡? ìºì‹±
     private int currentIndex = 0;
 
     void Start()
     {
-        // ì‚¬ìš´ë“œ
-        SoundController.PlayBGMSound("1-stage bgm");
+        // ?‚¬?š´?“œ
+        SoundController.PlayBGMSound("main");
 
-        // ì´ˆê¸° ìƒíƒœ ì„¤ì •
+        // ì´ˆê¸° ?ƒ?ƒœ ?„¤? •
         for (int i = 0; i < objects.Length; i++)
         {
             objects[i].SetActive(i == 0);
@@ -22,7 +22,7 @@ public class IntroManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown) // ì•„ë¬´ í‚¤ë‚˜ ëˆŒë €ì„ ë•Œ
+        if (Input.anyKeyDown) // ?•„ë¬? ?‚¤?‚˜ ?ˆŒ????„ ?•Œ
         {
             SwitchObject();
         }
@@ -30,10 +30,10 @@ public class IntroManager : MonoBehaviour
 
     void SwitchObject()
     {
-        // íš¨ê³¼ìŒ
+        // ?š¨ê³¼ìŒ
         SoundController.PlaySFXSound("ui-button");
 
-        // íƒ€ì´í‹€ ì”¬ìœ¼ë¡œ ì´ë™
+        // ????´??? ?”¬?œ¼ë¡? ?´?™
         if(currentIndex >= 2)
         {
             DOTween.KillAll();
@@ -42,13 +42,13 @@ public class IntroManager : MonoBehaviour
 
         else
         {
-            // í˜„ì¬ ì˜¤ë¸Œì íŠ¸ ë¹„í™œì„±í™”
+            // ?˜„?¬ ?˜¤ë¸Œì ?Š¸ ë¹„í™œ?„±?™”
             objects[currentIndex].SetActive(false);
 
-            // ë‹¤ìŒ ì¸ë±ìŠ¤ë¡œ ì´ë™
+            // ?‹¤?Œ ?¸?±?Š¤ë¡? ?´?™
             currentIndex = (currentIndex + 1) % objects.Length;
 
-            // ë‹¤ìŒ ì˜¤ë¸Œì íŠ¸ í™œì„±í™”
+            // ?‹¤?Œ ?˜¤ë¸Œì ?Š¸ ?™œ?„±?™”
             objects[currentIndex].SetActive(true);
         }
     }
