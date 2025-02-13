@@ -99,12 +99,12 @@ public class PlayerMove : MonoBehaviour
             }
 
         //점프 속도확인후 애니메이션 재생
-        if (playerRigid.velocity.y > 1f && animator.GetBool("isJump"))
+        if (playerRigid.velocity.y > 0f && animator.GetBool("isJump"))
         {
             animator.SetBool("isJumpUp", true);
             animator.SetBool("isJumpDown", false);
         }
-        else if (playerRigid.velocity.y < -1f && animator.GetBool("isJump"))
+        else if (playerRigid.velocity.y < 0f && animator.GetBool("isJump"))
         {
             animator.SetBool("isJumpUp", false);
             animator.SetBool("isJumpDown", true);
