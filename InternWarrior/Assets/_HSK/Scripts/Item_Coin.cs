@@ -8,6 +8,7 @@ public class Item_Coin : MonoBehaviour
     public int healAmount = 1; // 회복량
 
     PlayerManager manager;
+    bool isHit = false;
 
     private void Start()
     { 
@@ -19,8 +20,12 @@ public class Item_Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isHit) { return; }
+
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
+            isHit = true;
+
             // 코인 획득하는 로직
             if(manager != null)
             {
