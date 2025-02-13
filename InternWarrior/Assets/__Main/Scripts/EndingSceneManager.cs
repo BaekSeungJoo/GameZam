@@ -12,6 +12,8 @@ public class EndingSceneManager : MonoBehaviour
 
     private void Start()
     {
+        SoundController.PlaySFXSound("2 stage clear");
+
         // 메인으로
         Clear_GoToMainButton.onClick.AddListener(() =>
         {
