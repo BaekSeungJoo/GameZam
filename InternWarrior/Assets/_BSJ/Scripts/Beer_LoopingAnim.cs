@@ -8,6 +8,7 @@ public class Beer_LoopingAnim : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform spawnPoint;
     public float fireRate = 3f; // 발사 간격 (초)
+    public float lifeTime = 5f;
 
     private void Start()
     {
@@ -32,7 +33,10 @@ public class Beer_LoopingAnim : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject bubble = Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
         // 추가적인 발사 효과를 여기서 구현할 수 있습니다.
+
+        Bullet_Alchhol bullet = bubble.GetComponent<Bullet_Alchhol>();
+        bullet.objectDestroyTime = lifeTime;
     }
 }

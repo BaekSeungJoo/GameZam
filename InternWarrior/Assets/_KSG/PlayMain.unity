@@ -1011,6 +1011,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2271173008640443584, guid: 3232035eaf9ccb248b1bcd3eb536d2b5, type: 3}
+      propertyPath: liftTime
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2839792649774592686, guid: 3232035eaf9ccb248b1bcd3eb536d2b5, type: 3}
       propertyPath: m_Name
       value: item_Alcohol (2)
