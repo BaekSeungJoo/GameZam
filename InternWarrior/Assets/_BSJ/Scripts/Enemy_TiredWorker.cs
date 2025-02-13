@@ -14,9 +14,17 @@ public class Enemy_TiredWorker : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private SpriteRenderer spriteRenderer;
 
+    PlayerManager playerManager;
+
     public void Start()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
+
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        if (playerManager == null)
+        {
+            Debug.LogError("PlayerManager 인식 불가");
+        }
     }
 
     public void Dead_Worker()
@@ -26,6 +34,9 @@ public class Enemy_TiredWorker : MonoBehaviour
         {
             boxCollider2D.enabled = false;
         }
+
+        // 회복
+        playerManager.Heal(2);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
