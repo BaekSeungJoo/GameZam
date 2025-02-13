@@ -1,33 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public enum MovementType { Horizontal, Vertical } //플랫폼 이동 방식
+    public enum MovementType { Horizontal, Vertical } // 플랫폼 이동 방식
     public MovementType movementType = MovementType.Horizontal;
 
-    public float speed = 2f; // 이동속도
+    public float speed = 2f; // 플랫폼 기본 이동 속도
     public float moveDistance = 3f; // 이동 범위
 
-
     private Vector2 startPos;
-    private int direction = 1; // 이동방향 -1이면 반대방향으로
+    private int direction = 1; // 이동 방향 (-1이면 반대 방향)
     private Rigidbody2D rb;
+    private Rigidbody2D playerRb; // 플레이어 Rigidbody2D
+    private bool isPlayerOnPlatform = false; // 플레이어가 플랫폼 위에 있는지 확인
 
 
-
-
-    // Start is called before the first frame update
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
-        rb.bodyType = RigidbodyType2D.Kinematic; // 중력에 영향을 받지 않게 설정
-
+        rb.bodyType = RigidbodyType2D.Kinematic; // 중력 영향 X
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
         float traveled = movementType == MovementType.Horizontal ?
@@ -35,23 +32,30 @@ public class MovingPlatform : MonoBehaviour
 
         if (Mathf.Abs(traveled) >= moveDistance)
         {
-            direction *= -1;
+            direction *= -1; // 방향 반전
         }
 
-        Vector2 movement = movementType == MovementType.Horizontal ?
+        Vector2 platformVelocity = movementType == MovementType.Horizontal ?
             new Vector2(direction * speed, rb.velocity.y) :
             new Vector2(rb.velocity.x, direction * speed);
 
-        rb.velocity = movement;
+        rb.velocity = platformVelocity;
+
+        if (isPlayerOnPlatform && playerRb != null)
+        {
+            if (movementType == MovementType.Horizontal)
+                AdjustPlayerVelocity(platformVelocity);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
             collision.transform.SetParent(transform); // 플레이어를 플랫폼의 자식으로 설정
+            isPlayerOnPlatform = true;
         }
-        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -59,12 +63,20 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.transform.SetParent(null);
+            isPlayerOnPlatform = false;
+            playerRb = null;
         }
     }
 
-
-    void Update()
+    private void AdjustPlayerVelocity(Vector2 platformVelocity)
     {
+        if (playerRb == null) return;
 
+        float playerInput = Input.GetAxisRaw("Horizontal"); // 플레이어 입력 가져오기
+        float playerSpeed = GameObject.Find("PlayerManager").GetComponent<PlayerManager>().GetPlayerSpeed(); // 기본 플레이어 속도 (플레이어 코드에 맞게 수정 가능)
+
+        // 플랫폼 속도를 보정하여 플레이어 이동을 자연스럽게 조절
+        float adjustedSpeed = (playerInput * playerSpeed) + platformVelocity.x;
+        playerRb.velocity = new Vector2(adjustedSpeed, playerRb.velocity.y);
     }
 }
