@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -134,8 +132,14 @@ public class PlayerMove : MonoBehaviour
         // 박카스 투척
         if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
+            //무기 투척방향 설정
+            if (spriteRenderer.flipX)
+                manager.SetWeaponDir("left");
+            else
+                manager.SetWeaponDir("right");
+
             //박카스 수량 확인
-            if(manager.weaponCount > 0)
+            if (manager.weaponCount > 0)
             {
                 manager.weaponCount--;
 

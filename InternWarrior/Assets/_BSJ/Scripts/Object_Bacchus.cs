@@ -20,6 +20,14 @@ public class Object_Bacchus : MonoBehaviour
     [Header("실패")]
     public VFXPoolObjType bad_VfxType;
 
+    private PlayerManager playerManager;
+
+    private void Start()
+    {
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        SetFlyDirection();
+    }
+
     private void Update()
     {
         // 스프라이트 회전
@@ -30,8 +38,10 @@ public class Object_Bacchus : MonoBehaviour
     }
 
     // 날아가는 방향 설정 함수
-    public void SetFlyDirection(string direction)
+    public void SetFlyDirection()
     {
+        string direction = playerManager.GetWeaponDir();
+
         if (direction == "right")
         {
             flyDirection = Vector3.right;

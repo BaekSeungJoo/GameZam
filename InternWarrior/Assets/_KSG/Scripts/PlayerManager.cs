@@ -24,6 +24,16 @@ public class PlayerManager : MonoBehaviour
 
     private bool isStunning = false;
     private float stunTime = 0.0f;
+    private string weaponDir;
+
+    public void SetWeaponDir(string dir)
+    {
+        weaponDir = dir;
+    }
+    public string GetWeaponDir()
+    {
+        return weaponDir;
+    }
 
     public void GetBacchus(int amount)
     {
