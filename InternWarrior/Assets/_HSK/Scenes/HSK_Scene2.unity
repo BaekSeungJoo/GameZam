@@ -2148,6 +2148,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425700777427654920, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425700777427654920, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}

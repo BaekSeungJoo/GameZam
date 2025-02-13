@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KnockbackMob : MonoBehaviour
@@ -14,7 +15,7 @@ public class KnockbackMob : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 startPos;
     private int direction = 1; // 방향 > 1이면 오른쪽, -1이면 왼쪽으로
-
+    private SpriteRenderer spriteRenderer;
 
     PlayerManager playerManager;
 
@@ -58,6 +59,8 @@ public class KnockbackMob : MonoBehaviour
             Debug.LogError("PlayerManager 인식 불가");
         }
 
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
     }
@@ -76,6 +79,7 @@ public class KnockbackMob : MonoBehaviour
         if (Mathf.Abs(traveled) >= moveDistance)
         {
             direction *= -1;
+            spriteRenderer.flipX = !spriteRenderer.flipX; //이미지 뒤집기
         }
 
         rb.velocity = new Vector2(direction * speed, rb.velocity.y);
