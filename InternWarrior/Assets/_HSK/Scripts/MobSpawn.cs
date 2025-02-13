@@ -14,9 +14,11 @@ public class MonsterSpawner : MonoBehaviour
             GameObject mob = Instantiate(monsterPrefab, spawnPoint.position, Quaternion.identity);
 
             KnockbackMob backMob = mob.GetComponent<KnockbackMob>();
+            Enemy_TiredWorker worker = mob.GetComponent<Enemy_TiredWorker>();
             backMob.knockbackForce = 100f;
             backMob.stopTime = 0f;
             backMob.moveTime = 1f;
+            backMob.speed = 25f;
             backMob.moveDistance = 50f;
 
 
