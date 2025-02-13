@@ -1029,6 +1029,7 @@ MonoBehaviour:
   musicClips:
   - {fileID: 8300000, guid: d1a289c5106181f4a901c3b0b602667e, type: 3}
   - {fileID: 8300000, guid: 39977724113f6034789c86751610bf4f, type: 3}
+  - {fileID: 8300000, guid: 4265f49623299c04885e0228f9a916da, type: 3}
   sfxClips:
   - {fileID: 8300000, guid: 3f1bd17d775f67a42baeea6d0efa07f6, type: 3}
   - {fileID: 8300000, guid: 7dc164df3791d194f9743aaa667a8e23, type: 3}
@@ -1045,6 +1046,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3e2e21eb8ba1deb4e9da6c3ffadef6a7, type: 3}
   - {fileID: 8300000, guid: f01065b4db04b964eacdf5f61e110e1c, type: 3}
   - {fileID: 8300000, guid: bf2e2ac923c95984fb4d8c98353063c4, type: 3}
+  - {fileID: 8300000, guid: ac772e65958595b46b887f618ab72269, type: 3}
 --- !u!82 &1779141331
 AudioSource:
   m_ObjectHideFlags: 0
