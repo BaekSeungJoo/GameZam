@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4859112673416175188}
   - component: {fileID: 5026756410529202259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 642783560446487486}
   - component: {fileID: 4435098202368120909}
   - component: {fileID: 1754747621610756748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh_Light
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.35}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 29770547031177436}
   - component: {fileID: 7877358322750389751}
   - component: {fileID: 6486973107659608360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

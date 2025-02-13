@@ -6257,6 +6257,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Bouncer
       objectReference: {fileID: 0}
+    - target: {fileID: 2022497520987214140, guid: 815a0f70e0535cb49bddab41dc08ec6a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040691820740548431, guid: 815a0f70e0535cb49bddab41dc08ec6a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
