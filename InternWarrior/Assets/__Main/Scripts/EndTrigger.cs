@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class EndTrigger : MonoBehaviour
 {
@@ -11,6 +13,15 @@ public class EndTrigger : MonoBehaviour
         {
             coverObject.GetComponent<SpriteRenderer>().color = Color.white;
             coverObject.SetActive(true);
+
+            StartCoroutine(GameClear());
         }
     }
+    public IEnumerator GameClear()
+    {
+        yield return new WaitForSeconds(5.0f);
+        DOTween.KillAll();
+        SceneManager.LoadScene("3 GameClear");
+    }
+
 }
