@@ -102,7 +102,7 @@ MonoBehaviour:
   fadeOutDuration: 1
   displayDuration: 2
   animationDuration: 1
-  damage: 5
+  damage: 1
   vfxType: 0
 --- !u!95 &4790062404400134373
 Animator:

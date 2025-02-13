@@ -7,6 +7,12 @@ public class SofaJump : MonoBehaviour
     [Header("점프 배수")]
     public float jumpMultiplier = 2.0f; //점프 배수
     private BoxCollider2D sofaCollider;
+    private float sofaTopY = 0f;
+
+    void Start()
+    {
+        sofaCollider = transform.GetComponent<BoxCollider2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,9 +25,12 @@ public class SofaJump : MonoBehaviour
             if (playerRb != null && playerMove != null)
             {
                 float playerCenterY = other.GetComponent<Collider2D>().bounds.center.y; // 플레이어 중심 Y
-                float sofaTopY = sofaCollider.bounds.max.y; // 소파 최대 Y값
 
-
+                if(sofaCollider != null)
+                {
+                    sofaTopY = sofaCollider.bounds.max.y; // 소파 최대 Y값
+                }
+                
                 if(playerCenterY > sofaTopY)
                 { 
                 // 효과음 재생
@@ -38,17 +47,5 @@ public class SofaJump : MonoBehaviour
             }
 
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        sofaCollider = GetComponent<BoxCollider2D>(); // �浹�ڽ� ��������
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
