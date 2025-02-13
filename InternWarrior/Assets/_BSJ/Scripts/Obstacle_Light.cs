@@ -30,7 +30,7 @@ public class Obstacle_Light : MonoBehaviour
             hitVFX.transform.position = this.transform.position;
 
             // 플레이어에게 데미지를 줌
-            playerManager.playerHp -= damage;
+            playerManager.Damage(damage);
             playerManager.InitPlayUI();
 
             // 장애물 삭제

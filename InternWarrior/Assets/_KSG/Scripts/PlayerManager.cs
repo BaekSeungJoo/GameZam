@@ -17,6 +17,9 @@ public class PlayerManager : MonoBehaviour
     [Header("플레이어 최대HP")]
     public int playerMaxHp = 10;
 
+    [Header("데미지효과 재생시간")]
+    public float damageEffectTime = 1.0f;
+
     [Header("박카스 현재갯수")]
     public int weaponCount = 0;
 
@@ -67,6 +70,8 @@ public class PlayerManager : MonoBehaviour
     private string weaponDir;
     private float moveSpeed;
     private GameObject player;
+    private SpriteRenderer playerSpriteRenderer;
+    private Color originalColor;
 
     private void Start()
     {
@@ -74,6 +79,11 @@ public class PlayerManager : MonoBehaviour
         ChangeWindow(alcholCurrent);
         // 플레이어 게임오브젝트 찾기
         player = GameObject.Find("Player");
+
+        // 플레이어 스프라이트 연동
+        playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
+        // 플레이어 원래색깔 저장
+        originalColor = playerSpriteRenderer.color;
 
         // 데이터 초기화
         playerHp = playerMaxHp;
@@ -177,6 +187,9 @@ public class PlayerManager : MonoBehaviour
 
     public void Damage(int amount)
     {
+        // 효과음 재생
+        SoundController.PlaySFXSound("hit");
+
         playerHp -= amount;
         if (playerHp < 0)
         {
@@ -185,12 +198,42 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("체력 까임" + amount);
         Debug.Log("현재체력" + playerHp);
 
+        // 흑백으로 1초 변환
+        TurnGreyForOneSecond();
+
         // UI 업데이트
         InitPlayUI();
 
         // 게임 오버 체크
         GameOverCheck();
     }
+
+     public void TurnGreyForOneSecond()
+    {
+        StopAllCoroutines(); // 이전 코루틴 중지
+        StartCoroutine(TurnGreyCoroutine());
+    }
+
+    private IEnumerator TurnGreyCoroutine()
+    {
+        Color greyColor = Color.grey;
+
+        // 흑백으로 변경
+        for (int i = 0; i < 3; i++)
+        {
+            // 흑백으로 변경
+            playerSpriteRenderer.color = greyColor;
+            yield return new WaitForSeconds(0.1f);
+
+            // 원래 색깔로 복원
+            playerSpriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        // 원래 색깔로 복원
+        playerSpriteRenderer.color = originalColor;
+    }
+
 
     public void SetStun(bool stun)
     {

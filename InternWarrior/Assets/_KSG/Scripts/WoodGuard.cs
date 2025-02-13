@@ -72,7 +72,7 @@ public class WoodGuard : MonoBehaviour
         hitVFX.transform.position = this.transform.position + new Vector3 (0.7f, -0.5f);
 
         // 플레이어에게 데미지를 줌
-        playerManager.playerHp -= damage;
+        playerManager.Damage(damage);
         playerManager.InitPlayUI();
 
         // 페이드아웃

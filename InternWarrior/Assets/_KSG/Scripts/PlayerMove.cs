@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -6,6 +7,13 @@ public class PlayerMove : MonoBehaviour
     public float jumpScale = 1.0f;
     public GameObject weapon;
 
+    [Header("낙뎀 높이조건")]
+    public float fallHight = 7.0f;
+    [Header("낙뎀 값")]
+    public int fallDamage = 3;
+    [Header("낙뎀시 반발값")]
+    public float fallBounce = 5.0f;
+
     GameObject player;
     Rigidbody2D playerRigid;
     SpriteRenderer spriteRenderer;
@@ -13,6 +21,8 @@ public class PlayerMove : MonoBehaviour
     PlayerManager manager;
     float timer;
     int currntJump = 0;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -120,6 +130,9 @@ public class PlayerMove : MonoBehaviour
         {
             // 달리기 상태 해제
             animator.SetBool("isRun", false);
+            
+            // 데미지 깜빡임
+            manager.TurnGreyForOneSecond();
 
             timer += Time.deltaTime;
             if(timer > manager.GetStunTime())
