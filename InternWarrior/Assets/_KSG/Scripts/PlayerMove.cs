@@ -1,18 +1,21 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float maxSpeed = 1.0f;
-    public float jumpScale = 1.0f;
-    public GameObject weapon;
-
     [Header("낙뎀 높이조건")]
     public float fallHight = 7.0f;
     [Header("낙뎀 값")]
     public int fallDamage = 3;
-    [Header("낙뎀시 반발값")]
+    [Header("낙뎀시 반동값")]
     public float fallBounce = 5.0f;
+    [Header("플레이어 최대스피드")]
+    public float maxSpeed = 1.0f;
+    [Header("점프 강도")]
+    public float jumpScale = 1.0f;
+    public GameObject weapon;
+
 
     GameObject player;
     Rigidbody2D playerRigid;
@@ -21,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     PlayerManager manager;
     float timer;
     int currntJump = 0;
+    float maxYHeight;
 
 
 
@@ -164,6 +168,8 @@ public class PlayerMove : MonoBehaviour
                 bullet.transform.parent = null;
             }
         }
+
+        MaxAirHeight();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -173,7 +179,17 @@ public class PlayerMove : MonoBehaviour
             // 효과음 재생
             SoundController.PlaySFXSound("Land");
 
-            //점프카운트 초기화
+            // 낙뎀 조건 확인하기
+            if(maxYHeight - transform.position.y > fallHight)
+            {
+                manager.Damage(fallDamage);
+                playerRigid.velocity = Vector2.zero;
+                playerRigid.AddForce(Vector2.up * fallBounce, ForceMode2D.Impulse);
+            }
+
+            // 최대높이 현재치로 초기화
+            maxYHeight = transform.position.y;
+            // 점프카운트 초기화
             currntJump = 0;
         }
     }
@@ -205,5 +221,16 @@ public class PlayerMove : MonoBehaviour
         animator.SetBool("isDead", true);
         manager.SetStun(true);
         manager.SetStunTime(9999f);
+    }
+
+    private void MaxAirHeight()
+    {
+        if(animator.GetBool("isJump"))
+        {
+            if(maxYHeight < this.gameObject.transform.position.y)
+            {
+                maxYHeight = this.gameObject.transform.position.y;
+            }
+        }
     }
 }
