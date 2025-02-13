@@ -58,7 +58,7 @@ MonoBehaviour:
   postProcessingVolume: {fileID: 0}
   gameManager: {fileID: 0}
   guard: {fileID: 8998453353073182911, guid: dd33026c7397a39439e89cc2881c7819, type: 3}
-  xOffset: -0.8
+  xOffset: -0.5
   yOffset: 0.8
 --- !u!1 &7192983782240609425
 GameObject:
