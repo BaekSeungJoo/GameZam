@@ -49,15 +49,25 @@ public class PlayerManager : MonoBehaviour
     [Header("게임매니저 참조 (게임오버 관련)")]
     public GameManager gameManager;
 
+    [Header("트리가드 참조")]
+    public GameObject guard;
+
+    [Header("트리가드 X 오프셋")]
+    public float xOffset = -1.0f;
+
     private bool isStunning = false;
     private float stunTime = 0.0f;
     private string weaponDir;
     private float moveSpeed;
+    private GameObject player;
 
     private void Start()
     {
         // 포스트 프로세싱 초기화
         ChangeWindow(alcholCurrent);
+        // 플레이어 게임오브젝트 찾기
+        player = GameObject.Find("Player");
+
     }
 
     private void Update()
@@ -85,6 +95,12 @@ public class PlayerManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SpawnTreeGuard()
+    {
+        GameObject guardObj = Instantiate(guard, new Vector3(xOffset,0,0), Quaternion.identity);
+        guardObj.transform.SetParent(player.transform, false);
     }
 
     public void SetPlayerSpeed(float value)

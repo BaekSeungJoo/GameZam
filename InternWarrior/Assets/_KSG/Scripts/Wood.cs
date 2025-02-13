@@ -5,19 +5,24 @@ using UnityEngine;
 
 public class Wood : MonoBehaviour
 {
-    WoodGuard woodGuard;
+    PlayerManager playerManager;
+    bool isActivated = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        woodGuard = GameObject.Find("WoodGuard").GetComponent<WoodGuard>();
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            woodGuard.StartFade();
+            if (!isActivated)
+            {
+                playerManager.SpawnTreeGuard();
+                isActivated = true;
+            }    
         }
     }
 }
