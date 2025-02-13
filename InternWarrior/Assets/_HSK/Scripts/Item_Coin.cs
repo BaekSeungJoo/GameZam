@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Item_Coin : MonoBehaviour
 {
-    public int healAmount = 1; // È¸º¹·®
+    public int healAmount = 1; // È¸ï¿½ï¿½ï¿½ï¿½
 
     PlayerManager manager;
     bool isHit = false;
@@ -15,18 +15,18 @@ public class Item_Coin : MonoBehaviour
         manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     }
 
-    private void Update()
-    { }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isHit) { return; }
 
-        if (other.CompareTag("Player")) // ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹Çß´Ù¸é
+        if (other.CompareTag("Player")) // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½æµ¹ï¿½ß´Ù¸ï¿½
         {
             isHit = true;
 
-            // ÄÚÀÎ È¹µæÇÏ´Â ·ÎÁ÷
+            // íš¨ê³¼ìŒ ì¬ìƒ
+            SoundController.PlaySFXSound("Coin");
+
+            // ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
             if(manager != null)
             {
                 manager.Heal(healAmount);

@@ -7,22 +7,22 @@ using UnityEngine.UI;
 
 public class EndingSceneManager : MonoBehaviour
 {
-    [Header("°ÔÀÓ Á¾·á ¹öÆ°")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°")]
     public Button gameQuitButton;
 
-    [Header("¸ÞÀÎÀ¸·Î ¹öÆ°")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°")]
     public Button goToMainButton;
 
     private void Start()
     {
-        // °ÔÀÓ Á¾·á ¹öÆ°
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
         gameQuitButton.onClick.AddListener(() => 
         {
             DOTween.KillAll();
             Application.Quit();
         });
 
-        // ¸ÞÀÎÀ¸·Î ¹öÆ°
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
         goToMainButton.onClick.AddListener(() => 
         {
             DOTween.KillAll();
