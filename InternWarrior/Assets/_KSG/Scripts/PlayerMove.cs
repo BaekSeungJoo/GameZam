@@ -82,24 +82,6 @@ public class PlayerMove : MonoBehaviour
                 animator.SetBool("isRun", false);
         }
 
-        //점프 속도확인후 애니메이션 재생
-        if (playerRigid.velocity.y > 0.5f)
-        {
-            animator.SetBool("isJumpUp", true);
-            animator.SetBool("isJumpDown", false);
-        }
-        else if (playerRigid.velocity.y < -0.5f)
-        {
-            animator.SetBool("isJumpUp", false);
-            animator.SetBool("isJumpDown", true);
-        }  
-        else
-        {
-            animator.SetBool("isJumpUp", false);
-            animator.SetBool("isJumpDown", false);
-        }
-        
-
         //땅에 있는지 확인
         Debug.DrawRay(playerRigid.position, Vector2.down, Color.cyan);
 
@@ -115,6 +97,23 @@ public class PlayerMove : MonoBehaviour
             {
                 animator.SetBool("isJump", false);
             }
+
+        //점프 속도확인후 애니메이션 재생
+        if (playerRigid.velocity.y > 0.5f && rayHit.distance > 0.6f)
+        {
+            animator.SetBool("isJumpUp", true);
+            animator.SetBool("isJumpDown", false);
+        }
+        else if (playerRigid.velocity.y < -0.5f)
+        {
+            animator.SetBool("isJumpUp", false);
+            animator.SetBool("isJumpDown", true);
+        }
+        else
+        {
+            animator.SetBool("isJumpUp", false);
+            animator.SetBool("isJumpDown", false);
+        }
 
         //스턴 딜레이
         if (manager.GetStun())
