@@ -17311,7 +17311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlchholAmount: 1
-  stayTime: 10
+  stayTime: 18
 --- !u!1001 &1070694523
 PrefabInstance:
   m_ObjectHideFlags: 0
