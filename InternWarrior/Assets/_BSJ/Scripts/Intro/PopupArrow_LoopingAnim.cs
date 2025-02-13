@@ -6,8 +6,8 @@ using DG.Tweening;
 public class PopupArrow_LoopingAnim : MonoBehaviour
 {
     private RectTransform rectTransform;
-    public float moveDistance = 50f; // ÏúÑÏïÑÎûò Ïù¥Îèô Í∞ÑÍ≤©
-    public float duration = 1f; // Ï£ºÍ∏∞
+    public float moveDistance = 50f; // ¿ßæ∆∑° ¿Ãµø ∞£∞›
+    public float duration = 1f; // ¡÷±‚
 
     void Start()
     {
@@ -18,8 +18,8 @@ public class PopupArrow_LoopingAnim : MonoBehaviour
     void MoveVertically()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y + moveDistance, duration));
-        sequence.Append(rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - moveDistance, duration));
-        sequence.SetLoops(-1, LoopType.Yoyo); // Î¨¥Ìïú Î∞òÎ≥µ
+        sequence.Append(rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y + moveDistance, duration).SetEase(Ease.InOutSine));
+        sequence.Append(rectTransform.DOAnchorPosY(rectTransform.anchoredPosition.y - moveDistance, duration).SetEase(Ease.InOutSine));
+        sequence.SetLoops(-1, LoopType.Yoyo); // π´«— π›∫π
     }
 }

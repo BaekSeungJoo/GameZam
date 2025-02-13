@@ -73,6 +73,15 @@ public class PlayerManager : MonoBehaviour
     private SpriteRenderer playerSpriteRenderer;
     private Color originalColor;
 
+    [Header("죽었을 때 커버 오브젝트")]
+    public GameObject CoverObject;
+
+    [Header("기존 플레이 UI")]
+    public GameObject PlayUI_Object;
+
+    [Header("새로운 죽음 UI")]
+    public GameObject DeadUI_Object;
+
     private void Start()
     {
         // 포스트 프로세싱 초기화
@@ -294,11 +303,35 @@ public class PlayerManager : MonoBehaviour
     {
         if (playerHp <= 0 || alcholCurrent >= 5)
         {
+            // UI 변경
+            CoverObject.SetActive(true);
+            PlayUI_Object.SetActive(false);
+
             player.GetComponent<PlayerMove>().PlayerDead();
             yield return new WaitForSeconds(4.0f);
 
-            gameManager.MoveScene_GameEnd();
+            DeadUI_Object.SetActive(true);
         }
+    }
+
+    public void TimeOut()
+    {
+        StartCoroutine(TimeOutCoroutine());
+    }
+
+    /// <summary>
+    /// 시간초과
+    /// </summary>
+    public IEnumerator TimeOutCoroutine()
+    {
+        // UI 변경
+        CoverObject.SetActive(true);
+        PlayUI_Object.SetActive(false);
+
+        player.GetComponent<PlayerMove>().PlayerDead();
+        yield return new WaitForSeconds(4.0f);
+
+        DeadUI_Object.SetActive(true);
     }
 
     /// <summary>

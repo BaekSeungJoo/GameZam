@@ -5,8 +5,8 @@ using TMPro;
 
 public class TimerManager : MonoBehaviour
 {
-    [Header("게임 매니저 참조")]
-    public GameManager gameManager;
+    [Header("플레이어 매니저 참조")]
+    public PlayerManager playerManager;
 
     [Header("제한 시간 (5분)")]
     public float gameTime = 300f;
@@ -49,8 +49,8 @@ public class TimerManager : MonoBehaviour
             yield return null;
         }
 
-        // 시간이 0이 되었을 때, 게임 엔드
-        gameManager.MoveScene_GameEnd();
+        // 시간이 0이 되었을 때, 사망
         timerText.text = "00:00";
+        playerManager.TimeOut();
     }
 }
