@@ -65,7 +65,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject != null)
         {
             collision.transform.SetParent(null);
             isPlayerOnPlatform = false;
