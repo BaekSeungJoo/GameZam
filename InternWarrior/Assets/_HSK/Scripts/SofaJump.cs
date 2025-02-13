@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class SofaJump : MonoBehaviour
 {
-    public float jumpMultiplier = 2.0f; //Á¡ÇÁ ¹è¼ö
+    public float jumpMultiplier = 2.0f; //ì í”„ ë°°ìˆ˜
+    private BoxCollider2D sofaCollider;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹½Ã
+        if (other.CompareTag("Player")) // í”Œë ˆì´ì–´ ì¶©ëŒ í™•ì¸
         {
+
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
             PlayerMove playerMove = other.GetComponent<PlayerMove>();
 
             if (playerRb != null && playerMove != null)
             {
-                float jumpForce = playerMove.jumpScale; // Á¡ÇÁ ½ºÄÉÀÏ °¡Á®¿À±â
-                playerRb.velocity = new Vector2(playerRb.velocity.x, 0); //±âÁ¸ Á¡ÇÁ¼Óµµ ÃÊ±âÈ­
+                float playerCenterY = other.GetComponent<Collider2D>().bounds.center.y; // í”Œë ˆì´ì–´ ì¤‘ì‹¬ Y
+                float sofaTopY = sofaCollider.bounds.max.y; // ì†ŒíŒŒ ìµœëŒ€ Yê°’
+
+
+                if(playerCenterY > sofaTopY) { 
+                    
+
+                float jumpForce = playerMove.jumpScale; // í”Œë ˆì´ì–´ ì í”„ë ¥ ê°€ì ¸ì˜´
+                playerRb.velocity = new Vector2(playerRb.velocity.x, 0); //í˜„ì¬ ì í”„ë ¥ì„ 0ìœ¼ë¡œ ë³€ê²½
                 playerRb.AddForce(Vector2.up * jumpForce * jumpMultiplier, ForceMode2D.Impulse);
 
-                Debug.Log("¼ÒÆÄÁ¡ÇÁ!"); 
+                Debug.Log("ì†ŒíŒŒì í”„!");
+                }
+
 
             }
 
@@ -29,7 +40,7 @@ public class SofaJump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        sofaCollider = GetComponent<BoxCollider2D>(); // ï¿½æµ¹ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     // Update is called once per frame
