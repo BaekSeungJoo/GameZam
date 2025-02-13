@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -216,6 +218,9 @@ public class PlayerManager : MonoBehaviour
         playUIManager.Change_CoinText(playerHp);
         playUIManager.Change_AlcoholText(alcholCurrent);
         playUIManager.Change_BacchusText(weaponCount);
+        playUIManager.Show_CardKey(keyCount);
+
+        GameOverCheck();
     }
 
     /// <summary>

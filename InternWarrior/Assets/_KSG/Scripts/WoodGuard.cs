@@ -73,6 +73,7 @@ public class WoodGuard : MonoBehaviour
 
         // 플레이어에게 데미지를 줌
         playerManager.playerHp -= damage;
+        playerManager.InitPlayUI();
 
         // 페이드아웃
         elapsedTime = 0f;

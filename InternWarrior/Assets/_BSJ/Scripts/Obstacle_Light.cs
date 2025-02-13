@@ -7,6 +7,16 @@ public class Obstacle_Light : MonoBehaviour
     [Header("이펙트")]
     public VFXPoolObjType VfxType;
 
+    [Header("데미지")]
+    public int damage = 3;
+
+    PlayerManager playerManager;
+
+    void Start()
+    {
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -16,8 +26,9 @@ public class Obstacle_Light : MonoBehaviour
             hitVFX.SetActive(true);
             hitVFX.transform.position = this.transform.position;
 
-            // TODO : 플레이어 HP 닳는 로직
-            print("플레이어 hp -1");
+            // 플레이어에게 데미지를 줌
+            playerManager.playerHp -= damage;
+            playerManager.InitPlayUI();
 
             // 장애물 삭제
             this.gameObject.SetActive(false);

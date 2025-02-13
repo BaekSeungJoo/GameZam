@@ -20,9 +20,9 @@ public class Item_Key : MonoBehaviour
         {
             isHit = true;
 
-            // 키 획득하는 로직
-            //print("키 획득했습니다.");
+            // 키 획득하는 로직 (UI 업데이트)
             playerManager.keyCount++;
+            playerManager.InitPlayUI();
 
             Destroy(gameObject);
         }
