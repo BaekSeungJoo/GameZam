@@ -10,6 +10,19 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
+        // SoundManager를 찾아서 캐싱
+        SoundManager soundManager = FindObjectOfType<SoundManager>();
+
+        // SoundManager가 존재한다면 음소거 해제
+        if (soundManager != null)
+        {
+            soundManager.ToggleTotalMute(false);
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager를 찾을 수 없습니다.");
+        }
+        
         // ?궗?슫?뱶
         SoundController.PlayBGMSound("main");
 
