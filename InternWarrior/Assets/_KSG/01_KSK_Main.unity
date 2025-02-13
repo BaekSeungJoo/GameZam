@@ -8467,6 +8467,9 @@ MonoBehaviour:
   continueButton: {fileID: 596880798}
   restartButton: {fileID: 596880797}
   goToMainButton: {fileID: 596880796}
+  Dead_ContinueButton: {fileID: 0}
+  Dead_RestartButton: {fileID: 0}
+  Dead_GoToMainButton: {fileID: 0}
 --- !u!4 &635950565
 Transform:
   m_ObjectHideFlags: 0
@@ -14024,7 +14027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d88acb8be4dc149898d3bbe0a45793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1050612587}
+  playerManager: {fileID: 0}
   gameTime: 300
   currentTime: 0
   timerText: {fileID: 596880794}
@@ -15318,6 +15321,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1121409703261902604
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422617490493627891, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344801945240181820, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
+      propertyPath: m_Name
+      value: Sofa_Long
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f87bf3bac56adc34ca68c66c7674d991, type: 3}
 --- !u!1001 &8110919125225430098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15438,3 +15498,4 @@ SceneRoots:
   - {fileID: 983774206}
   - {fileID: 533192052}
   - {fileID: 8110919125225430098}
+  - {fileID: 1121409703261902604}
