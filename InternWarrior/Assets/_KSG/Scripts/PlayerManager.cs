@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Header("멀티점프")]
-    public bool multiJump = true;
+    [Header("점프횟수")]
+    public int maxJump = 0;
 
     [Header("플레이어 현재HP")]
     public int playerHp = 10;

@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Lazer
   - TiredWorker
+  - Ground
   layers:
   - Default
   - TransparentFX

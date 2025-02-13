@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2425700777427654920}
   - component: {fileID: 6470790323054591671}
   - component: {fileID: 3630682892805039879}
+  - component: {fileID: 2091065579900878489}
+  - component: {fileID: 3543305247187575687}
   m_Layer: 0
   m_Name: Enemy_TiredWorker
   m_TagString: TiredWorker
@@ -115,7 +117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: 0}
@@ -158,3 +160,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2091065579900878489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264716780755996812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99139f8d2963c2468726c5b3c4616ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 10
+  disableMovementTIme: 0.5
+  stunTime: 1
+--- !u!114 &3543305247187575687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264716780755996812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e057a89f31279554da4764386696a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadTimer: 1
+  deadHigh: 2

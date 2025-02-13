@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     Animator animator;
     PlayerManager manager;
     float timer;
+    int currntJump = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -54,10 +55,18 @@ public class PlayerMove : MonoBehaviour
             //점프하기
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (animator.GetBool("isJump"))
-                    playerRigid.velocity = Vector2.zero;
-
-                playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
+                if(manager.maxJump <= 0)
+                {
+                    Jump();
+                }
+                else
+                {
+                    if(currntJump < manager.maxJump)
+                    {
+                        currntJump++;
+                        Jump();
+                    }
+                }
             }
             
             // 왼쪽으로 가면 스프라이트 뒤집기
@@ -95,13 +104,17 @@ public class PlayerMove : MonoBehaviour
         //땅에 있는지 확인
         Debug.DrawRay(playerRigid.position, Vector2.down, Color.cyan);
 
-        RaycastHit2D rayHit = Physics2D.Raycast(playerRigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
+        RaycastHit2D rayHit = Physics2D.Raycast(playerRigid.position, Vector3.down, 20, LayerMask.GetMask("Platform"));
 
         if (rayHit.collider != null)
-            if (rayHit.distance > 0.5f)
+            if (rayHit.distance > 0.6f)
             {
                 animator.SetBool("isJump", true);
                 //Debug.Log(rayHit.collider.gameObject.name);
+            }
+            else if(rayHit.distance < 0.6f && rayHit.collider.CompareTag("Ground") && animator.GetBool("isJump"))
+            {
+                animator.SetBool("isJump", false);
             }
 
         //스턴 딜레이
@@ -124,5 +137,31 @@ public class PlayerMove : MonoBehaviour
             GameObject bullet = Instantiate(weapon, player.transform);
             bullet.transform.parent = null;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            //점프카운트 초기화
+            currntJump = 0;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") && !Input.GetKey(KeyCode.UpArrow))
+        {
+            //점프한걸로 치기
+            currntJump++;
+        }
+    }
+
+    private void Jump()
+    {
+        if (animator.GetBool("isJump"))
+            playerRigid.velocity = Vector2.zero;
+
+        playerRigid.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
     }
 }
