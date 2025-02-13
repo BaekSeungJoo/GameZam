@@ -22,5 +22,16 @@ public class Obstacle_Light : MonoBehaviour
             // 장애물 삭제
             this.gameObject.SetActive(false);
         }
+
+        else
+        {
+            // 타격 실패 이펙트 콜
+            GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(VfxType);
+            hitVFX.SetActive(true);
+            hitVFX.transform.position = this.transform.position;
+
+            // 장애물 삭제
+            Destroy(this.gameObject);
+        }
     }
 }
