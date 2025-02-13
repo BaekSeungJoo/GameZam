@@ -22,6 +22,13 @@ public class PlayerManager : MonoBehaviour
     [Header("열쇠 카운트")]
     public int keyCount = 0;
 
+    [Header("현재 알코올")]
+    public int alcholCurrent = 0;
+
+    [Header("알코올 최댓값")]
+    public int alcholMax = 5;
+
+
     private bool isStunning = false;
     private float stunTime = 0.0f;
     private string weaponDir;
