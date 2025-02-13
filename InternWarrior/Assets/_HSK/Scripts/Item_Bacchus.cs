@@ -20,12 +20,13 @@ public class Item_Bacchus : MonoBehaviour
     {
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
+            Destroy(gameObject);
+
             // 박카스 획득하는 로직
-            if(manager != null)
+            if (manager != null)
             {
                 manager.GetBacchus(BacchusAmount);
             }
-
 
             /*
             PlayerBacchus playerBacchus = other.GetComponent<PlayerBacchus>();
@@ -35,8 +36,6 @@ public class Item_Bacchus : MonoBehaviour
                 playerBacchus.GetBacchus(BacchusAmount);
             }
             */
-
-            Destroy(gameObject);
         }
 
     }

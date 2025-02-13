@@ -21,6 +21,7 @@ public class Object_Bacchus : MonoBehaviour
     public VFXPoolObjType bad_VfxType;
 
     private PlayerManager playerManager;
+    private float timer = 0.0f;
 
     private void Start()
     {
@@ -35,6 +36,11 @@ public class Object_Bacchus : MonoBehaviour
 
         // 스프라이트 이동
         transform.Translate(flyDirection * flySpeed * Time.deltaTime, Space.World);
+
+        // 5초후 제거
+        timer += Time.deltaTime;
+        if (timer > 5.0f)
+            Destroy(this.gameObject);
     }
 
     // 날아가는 방향 설정 함수
