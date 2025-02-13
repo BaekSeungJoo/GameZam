@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxJump: 1
-  playerHp: 5
-  playerMaxHp: 10
+  playerHp: 15
+  playerMaxHp: 15
   weaponCount: 5
   weaponMax: 5
   keyCount: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
   currentAlcholCancelTime: 0
   isAlchol: 0
   postProcessingVolume: {fileID: 0}
+  playUIManager: {fileID: 0}
   gameManager: {fileID: 0}
   guard: {fileID: 8998453353073182911, guid: dd33026c7397a39439e89cc2881c7819, type: 3}
   xOffset: -0.5
@@ -104,7 +105,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.8666667, g: 0.9019608, b: 0.8784314, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
