@@ -45,7 +45,7 @@ public class Bullet_Alchhol : MonoBehaviour
             // 자동파괴 시간 멈춤
             currentDestroyTime = 0f;
 
-            // 박카스 획득하는 로직
+            // 알코올 획득하는 로직
             if (manager != null)
             {
                 manager.GetAlcohol(AlchholAmount);
