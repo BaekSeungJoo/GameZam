@@ -17,31 +17,47 @@ public class ClearDoor : MonoBehaviour
 
     bool isHit = false;
 
+    PlayerManager manager;
+
+    private void Start()
+    { 
+        manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isHit) { return; }
 
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
+            
             isHit = true;
 
-            // 효과음
-            SoundController.PlaySFXSound("1-stage clear");
-            
-            // 두 번째 자식의 모든 자식들의 부모를 없앰
-            Transform secondChild = other.transform.GetChild(1);
-            if (secondChild != null)
+            if(manager.keyCount <= 0)
             {
-                secondChild.GetChild(1).SetParent(null);
-                secondChild.GetChild(0).SetParent(null);
+                manager.TimeOut();
             }
 
-            AnimateSprite(other.transform, () =>
+            else
             {
-                Debug.Log("애니메이션 완료");
-                // 애니메이션 완료 후 호출할 함수 추가
-                OnAnimationComplete();
-            });
+                // 효과음
+                SoundController.PlaySFXSound("1-stage clear");
+                
+                // 두 번째 자식의 모든 자식들의 부모를 없앰
+                Transform secondChild = other.transform.GetChild(1);
+                if (secondChild != null)
+                {
+                    secondChild.GetChild(1).SetParent(null);
+                    secondChild.GetChild(0).SetParent(null);
+                }
+
+                AnimateSprite(other.transform, () =>
+                {
+                    Debug.Log("애니메이션 완료");
+                    // 애니메이션 완료 후 호출할 함수 추가
+                    OnAnimationComplete();
+                });
+            }
         }   
     }
 

@@ -5226,6 +5226,9 @@ MonoBehaviour:
   continueButton: {fileID: 596880798}
   restartButton: {fileID: 596880797}
   goToMainButton: {fileID: 596880796}
+  Dead_ContinueButton: {fileID: 3708900754846485732}
+  Dead_RestartButton: {fileID: 6469811506692694744}
+  Dead_GoToMainButton: {fileID: 3751998989730684097}
 --- !u!4 &635950565
 Transform:
   m_ObjectHideFlags: 0

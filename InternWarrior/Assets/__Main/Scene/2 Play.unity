@@ -428,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4451885741075833953, guid: 43aaf4aca3334b947994ca0041090235, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.08
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 4451885741075833953, guid: 43aaf4aca3334b947994ca0041090235, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1043,14 +1043,6 @@ CompositeCollider2D:
         Y: 70000000
       - X: 1330000000
         Y: 70000000
-    - - X: 470000000
-        Y: 70000000
-      - X: 430000000
-        Y: 70000000
-      - X: 430000000
-        Y: 60000000
-      - X: 470000000
-        Y: 60000000
     - - X: 290000000
         Y: 70000000
       - X: 250000000
@@ -1059,6 +1051,14 @@ CompositeCollider2D:
         Y: 60000000
       - X: 290000000
         Y: 60000000
+    - - X: 470000000
+        Y: 60000000
+      - X: 430000000
+        Y: 60000000
+      - X: 430000000
+        Y: 50000000
+      - X: 470000000
+        Y: 50000000
     - - X: 180000000
         Y: 50000000
       - X: 150000000
@@ -1169,14 +1169,14 @@ CompositeCollider2D:
       - {x: 132.99997, y: 8}
       - {x: 127, y: 7.9999704}
       - {x: 127.00003, y: 7}
-    - - {x: 46.999973, y: 6}
-      - {x: 46.999973, y: 7}
-      - {x: 43, y: 6.9999704}
-      - {x: 43.00003, y: 6}
     - - {x: 28.999971, y: 6}
       - {x: 28.999971, y: 7}
       - {x: 25, y: 6.9999704}
       - {x: 25.000029, y: 6}
+    - - {x: 46.999973, y: 5}
+      - {x: 46.999973, y: 6}
+      - {x: 43, y: 5.999971}
+      - {x: 43.00003, y: 5}
     - - {x: 23.999971, y: 4}
       - {x: 23.999971, y: 5}
       - {x: 21, y: 4.999971}
@@ -5016,6 +5016,46 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 43, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 44, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 45, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 46, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 25, y: 6, z: 0}
     second:
       serializedVersion: 2
@@ -5047,46 +5087,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 28, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 7
-      m_TileSpriteIndex: 7
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 43, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 6
-      m_TileSpriteIndex: 6
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 44, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 45, y: 6, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 46, y: 6, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 7
@@ -11463,6 +11463,9 @@ MonoBehaviour:
   continueButton: {fileID: 596880798}
   restartButton: {fileID: 596880797}
   goToMainButton: {fileID: 596880796}
+  Dead_ContinueButton: {fileID: 3708900754846485732}
+  Dead_RestartButton: {fileID: 6469811506692694744}
+  Dead_GoToMainButton: {fileID: 3751998989730684097}
 --- !u!4 &635950565
 Transform:
   m_ObjectHideFlags: 0
@@ -13727,6 +13730,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 48, y: 6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 49, y: 6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 77, y: 6, z: 0}
     second:
       serializedVersion: 2
@@ -13822,26 +13845,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 1
       m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 48, y: 7, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 7
-      m_TileSpriteIndex: 7
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 49, y: 7, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 6
-      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18690,7 +18693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1031362707107161072, guid: 815a0f70e0535cb49bddab41dc08ec6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.74
+      value: 7.71
       objectReference: {fileID: 0}
     - target: {fileID: 1031362707107161072, guid: 815a0f70e0535cb49bddab41dc08ec6a, type: 3}
       propertyPath: m_LocalPosition.z

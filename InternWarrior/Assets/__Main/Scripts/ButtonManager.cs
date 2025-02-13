@@ -27,6 +27,17 @@ public class ButtonManager : MonoBehaviour
     [Header("메인으로")]
     public Button goToMainButton;
 
+    // --------------------------------------------------
+
+    [Header("사망 계속하기 버튼")]
+    public Button Dead_ContinueButton;
+
+    [Header("사망 게임 재시작")]
+    public Button Dead_RestartButton;
+
+    [Header("사망 메인으로")]
+    public Button Dead_GoToMainButton;
+
     private void Start()
     {
         // 일시정지 버튼
@@ -93,6 +104,44 @@ public class ButtonManager : MonoBehaviour
 
             // 게임 시간 다시 흐르게
             Time.timeScale = 1;
+
+            // 메인 씬으로 이동 (트윈 제거)
+            DOTween.KillAll();
+            SceneManager.LoadScene("0 Title");
+        });
+
+        // --------------------------------------------------
+
+        // 사망 계속하기 버튼
+        continueButton.onClick.AddListener(() =>
+        {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
+
+            // 현재 씬의 이름 가져오기
+            string currentSceneName = SceneManager.GetActiveScene().name;
+
+            // 현재 씬 로드하여 재시작 (트윈 제거)
+            DOTween.KillAll();
+            SceneManager.LoadScene(currentSceneName);
+        });
+
+        // 사망 게임 재시작 버튼
+        restartButton.onClick.AddListener(() =>
+        {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
+
+            // 현재 씬 로드하여 재시작 (트윈 제거)
+            DOTween.KillAll();
+            SceneManager.LoadScene("1 Play");
+        });
+
+        // 메인으로
+        goToMainButton.onClick.AddListener(() =>
+        {
+            // 효과음
+            SoundController.PlaySFXSound("ui-button");
 
             // 메인 씬으로 이동 (트윈 제거)
             DOTween.KillAll();
