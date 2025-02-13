@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KnockbackMob : MonoBehaviour
-{
+{   //넉백 관련
     public float knockbackForce = 50f; // 밀어내는 힘
     public float disableMovementTIme = 0.5f; // 이동 정지 시간
     public float stunTime = 1.0f;
+    //이동 관련
+    public float speed = 2f; // 이동속도
+    public float moveDistance = 3f; //이동 범위
+
+    private Rigidbody2D rb;
+    private Vector2 startPos;
+    private int direction = 1; // 방향 > 1이면 오른쪽, -1이면 왼쪽으로
+
 
     PlayerManager playerManager;
 
@@ -14,6 +22,7 @@ public class KnockbackMob : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("플레이어 충돌감지");
             // 플레이어 스턴
             playerManager.SetStun(true);
             playerManager.SetStunTime(stunTime);
@@ -44,11 +53,32 @@ public class KnockbackMob : MonoBehaviour
     void Start()
     {
         playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        if (playerManager == null)
+        {
+            Debug.LogError("PlayerManager 인식 불가");
+        }
+
+        rb = GetComponent<Rigidbody2D>();
+        startPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void FixedUpdate()
+    {
+        
+        float traveled = transform.position.x - startPos.x; // 현재 이동거리 계산
+
+        if (Mathf.Abs(traveled) >= moveDistance)
+        {
+            direction *= -1;
+        }
+
+        rb.velocity = new Vector2(direction * speed, rb.velocity.y);
 
     }
 }

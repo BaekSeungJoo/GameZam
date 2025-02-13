@@ -898,7 +898,8 @@ MonoBehaviour:
   rotationSpeed: 720
   flyDirection: {x: 1, y: 0, z: 0}
   flySpeed: 15
-  effectPool: {fileID: 1149558759}
+  good_VfxType: 0
+  bad_VfxType: 0
 --- !u!212 &662447261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1969,7 +1970,8 @@ MonoBehaviour:
   rotationSpeed: 720
   flyDirection: {x: 1, y: 0, z: 0}
   flySpeed: 15
-  effectPool: {fileID: 1149558759}
+  good_VfxType: 0
+  bad_VfxType: 0
 --- !u!212 &1546568200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2047,11 +2049,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2239120287504845961, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.43
+      value: 3.99
       objectReference: {fileID: 0}
     - target: {fileID: 2239120287504845961, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.47
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 2239120287504845961, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2087,6 +2089,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425700777427654920, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630682892805039879, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630682892805039879, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6470790323054591671, guid: 572e76cb0b7ee414f84c3af1a31c7ac6, type: 3}
@@ -2129,6 +2139,8 @@ MonoBehaviour:
   knockbackForce: 10
   disableMovementTIme: 0.5
   stunTime: 1
+  speed: 2
+  moveDistance: 1
 --- !u!1 &1726920378
 GameObject:
   m_ObjectHideFlags: 0
