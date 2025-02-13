@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Wood : MonoBehaviour
 {
+    [Header("꽃병만 있는 스프라이트")]
+    public Sprite onlyVase;
+
     PlayerManager playerManager;
     bool isActivated = false;
 
@@ -22,6 +25,8 @@ public class Wood : MonoBehaviour
             {
                 playerManager.SpawnTreeGuard();
                 isActivated = true;
+
+                GetComponent<SpriteRenderer>().sprite = onlyVase;
             }    
         }
     }

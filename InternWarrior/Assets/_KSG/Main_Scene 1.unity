@@ -2357,6 +2357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard_Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 2347620321262472420, guid: 2bd0cd63b306f5b4ea6840e31ca135a7, type: 3}
+      propertyPath: onlyVase
+      value: 
+      objectReference: {fileID: 21300000, guid: ff978dbe8426170419c7bf260a6fb919, type: 3}
     - target: {fileID: 3451500042588894595, guid: 2bd0cd63b306f5b4ea6840e31ca135a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
