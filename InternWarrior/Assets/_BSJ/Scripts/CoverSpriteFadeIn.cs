@@ -13,6 +13,8 @@ public class CoverSpriteFadeIn : MonoBehaviour
 
     void Start()
     {
+        SoundController.PlaySFXSound("gameover");
+
         // 알파 값을 0에서 1로 4초 동안 애니메이션
         spriteRenderer.DOFade(1, 4f).From(0).SetEase(Ease.Linear);
     }

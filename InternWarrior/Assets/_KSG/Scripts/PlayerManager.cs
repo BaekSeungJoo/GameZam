@@ -293,7 +293,8 @@ public class PlayerManager : MonoBehaviour
         playUIManager.Change_BacchusText(weaponCount);
         playUIManager.Show_CardKey(keyCount);
 
-         StartCoroutine(GameOverCheck());
+        StopAllCoroutines();
+        StartCoroutine(GameOverCheck());
     }
 
     /// <summary>
@@ -316,6 +317,7 @@ public class PlayerManager : MonoBehaviour
 
     public void TimeOut()
     {
+        StopAllCoroutines();
         StartCoroutine(TimeOutCoroutine());
     }
 
