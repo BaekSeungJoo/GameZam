@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    private GameManager gameManager;
+    private PlayerManager playerManager;
 
     private void Start() {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player"))
         {
-            gameManager.MoveScene_GameEnd();
+            playerManager.TimeOut();
         }
     }
 }

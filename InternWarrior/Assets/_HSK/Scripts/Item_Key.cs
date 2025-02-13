@@ -15,6 +15,8 @@ public class Item_Key : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isHit) { return; }
+        
+        SoundController.PlaySFXSound("get");
 
         if (other.CompareTag("Player")) // 플레이어와 충돌했다면
         {
