@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5845d181bd26ba489b83358de8000d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJump: 2
+  maxJump: 1
   playerHp: 5
   playerMaxHp: 10
   weaponCount: 5
@@ -128,7 +128,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  jumpScale: 10
+  jumpScale: 15
   weapon: {fileID: 2336381696580287695, guid: 68eead96b69396243a1995ae2f56cd2d, type: 3}
 --- !u!61 &694978550564153454
 BoxCollider2D:
