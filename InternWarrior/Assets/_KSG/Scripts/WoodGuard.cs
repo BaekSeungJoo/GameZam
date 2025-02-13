@@ -16,6 +16,9 @@ public class WoodGuard : MonoBehaviour
     private PlayerManager playerManager;
     Animator animator;
 
+    [Header("이펙트")]
+    public VFXPoolObjType vfxType;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -61,6 +64,11 @@ public class WoodGuard : MonoBehaviour
 
         // 디스플레이 시간 동안 유지
         yield return new WaitForSeconds(animationDuration);
+
+        //
+        GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(vfxType);
+        hitVFX.SetActive(true);
+        hitVFX.transform.position = this.transform.position + new Vector3 (1.0f, 1.0f);
 
         // 완료후 애니메이션 해제
         animator.SetBool("isHitting", false);
