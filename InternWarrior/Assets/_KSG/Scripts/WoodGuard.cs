@@ -52,6 +52,7 @@ public class WoodGuard : MonoBehaviour
             elapsedTime += Time.deltaTime;
             color.a = Mathf.Clamp01(elapsedTime / fadeInDuration);
             spriteRenderer.color = color;
+
             yield return null;
         }
 
@@ -65,13 +66,11 @@ public class WoodGuard : MonoBehaviour
         // 디스플레이 시간 동안 유지
         yield return new WaitForSeconds(animationDuration);
 
-        //
+        // 이펙트 재생
         GameObject hitVFX = VFXObjectPool.instance.GetPoolObj(vfxType);
         hitVFX.SetActive(true);
-        hitVFX.transform.position = this.transform.position + new Vector3 (1.0f, 1.0f);
+        hitVFX.transform.position = this.transform.position + new Vector3 (0.7f, -0.5f);
 
-        // 완료후 애니메이션 해제
-        animator.SetBool("isHitting", false);
         // 플레이어에게 데미지를 줌
         playerManager.playerHp -= damage;
 
@@ -89,6 +88,8 @@ public class WoodGuard : MonoBehaviour
         color.a = 0f;
         spriteRenderer.color = color;
 
+        // 완료후 애니메이션 해제
+        animator.SetBool("isHitting", false);
         Destroy(this.gameObject);
     }
 

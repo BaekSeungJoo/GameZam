@@ -110,7 +110,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WG_Idle
+  m_Name: Guard_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 18ba0ab0819eda547963767027491a1b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7f4049ecbded1224dbcb30c4a7d58650, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WG_Jump
+  m_Name: Guard_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 63e5689b77b76f843a6d537ee5dd1631, type: 2}
+  m_Motion: {fileID: 7400000, guid: 16802677471528240b965e5578b145f0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

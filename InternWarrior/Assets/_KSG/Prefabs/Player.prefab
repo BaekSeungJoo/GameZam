@@ -59,6 +59,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   guard: {fileID: 8998453353073182911, guid: dd33026c7397a39439e89cc2881c7819, type: 3}
   xOffset: -0.8
+  yOffset: 0.8
 --- !u!1 &7192983782240609425
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -2002453642, guid: 7a324f55f99dcd64e9ed561eece96564, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

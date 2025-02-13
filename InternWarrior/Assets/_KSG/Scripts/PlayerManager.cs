@@ -53,7 +53,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject guard;
 
     [Header("트리가드 X 오프셋")]
-    public float xOffset = -1.0f;
+    public float xOffset = -0.5f;
+    [Header("트리가드 Y 오프셋")]
+    public float yOffset = 0.8f;
 
     private bool isStunning = false;
     private float stunTime = 0.0f;
@@ -99,7 +101,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SpawnTreeGuard()
     {
-        GameObject guardObj = Instantiate(guard, new Vector3(xOffset,0,0), Quaternion.identity);
+        GameObject guardObj = Instantiate(guard, new Vector3(xOffset,yOffset,0), Quaternion.identity);
         guardObj.transform.SetParent(player.transform, false);
     }
 
