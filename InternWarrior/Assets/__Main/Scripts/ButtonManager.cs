@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -67,7 +68,8 @@ public class ButtonManager : MonoBehaviour
             // 현재 씬의 이름 가져오기
             string currentSceneName = SceneManager.GetActiveScene().name;
 
-            // 현재 씬 로드하여 재시작
+            // 현재 씬 로드하여 재시작 (트윈 제거)
+            DOTween.KillAll();
             SceneManager.LoadScene(currentSceneName);
         });
 
@@ -77,7 +79,8 @@ public class ButtonManager : MonoBehaviour
             // 게임 시간 다시 흐르게
             Time.timeScale = 1;
 
-            // 메인 씬으로 이동
+            // 메인 씬으로 이동 (트윈 제거)
+            DOTween.KillAll();
             SceneManager.LoadScene("0 Title");
         });
     }

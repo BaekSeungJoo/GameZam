@@ -9,6 +9,7 @@ TagManager:
   - Lazer
   - TiredWorker
   - Ground
+  - ClearDoor
   layers:
   - Default
   - TransparentFX
