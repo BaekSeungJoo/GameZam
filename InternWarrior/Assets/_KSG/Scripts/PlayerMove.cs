@@ -132,10 +132,16 @@ public class PlayerMove : MonoBehaviour
         }
 
         // 박카스 투척
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            GameObject bullet = Instantiate(weapon, player.transform);
-            bullet.transform.parent = null;
+            //박카스 수량 확인
+            if(manager.weaponCount > 0)
+            {
+                manager.weaponCount--;
+
+                GameObject bullet = Instantiate(weapon, player.transform);
+                bullet.transform.parent = null;
+            }
         }
     }
 
@@ -150,6 +156,8 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // 점프하지 않았는데 땅에서 떨어질시에
+
         if (collision.gameObject.CompareTag("Ground") && !Input.GetKey(KeyCode.UpArrow))
         {
             //점프한걸로 치기
