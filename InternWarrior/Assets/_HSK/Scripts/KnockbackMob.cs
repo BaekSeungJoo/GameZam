@@ -12,12 +12,20 @@ public class KnockbackMob : MonoBehaviour
     public float speed = 2f; // 이동속도
     public float moveDistance = 3f; //이동 범위
 
+    //멈추게 하는거
+    public float moveTime = 3f;
+    public float stopTime = 2f;
+
+
     private Rigidbody2D rb;
     private Vector2 startPos;
     private int direction = 1; // 방향 > 1이면 오른쪽, -1이면 왼쪽으로
     private SpriteRenderer spriteRenderer;
+    private bool isMoving = true; //현재 이동중인지 여부
 
     PlayerManager playerManager;
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -63,6 +71,21 @@ public class KnockbackMob : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
+
+        StartCoroutine(MoveRoutine());
+    }
+
+    private IEnumerator MoveRoutine()
+    {
+        while (true)
+        {
+            isMoving = true;
+            yield return new WaitForSeconds(moveTime);
+
+            isMoving = false;
+            rb.velocity = Vector2.zero; // 속도 초기화
+            yield return new WaitForSeconds(stopTime);
+        }
     }
 
     // Update is called once per frame
@@ -73,16 +96,19 @@ public class KnockbackMob : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        float traveled = transform.position.x - startPos.x; // 현재 이동거리 계산
-
-        if (Mathf.Abs(traveled) >= moveDistance)
+        if (isMoving)
         {
-            direction *= -1;
-            spriteRenderer.flipX = !spriteRenderer.flipX; //이미지 뒤집기
-        }
 
-        rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+            float traveled = transform.position.x - startPos.x; // 현재 이동거리 계산
+
+            if (Mathf.Abs(traveled) >= moveDistance)
+            {
+                direction *= -1;
+                spriteRenderer.flipX = !spriteRenderer.flipX; //이미지 뒤집기
+            }
+
+            rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+        }
 
     }
 }
