@@ -13,7 +13,6 @@ public class PlayerMove : MonoBehaviour
     PlayerManager manager;
     float timer;
     int currntJump = 0;
-    bool isGrounded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,12 +99,12 @@ public class PlayerMove : MonoBehaviour
             }
 
         //점프 속도확인후 애니메이션 재생
-        if (playerRigid.velocity.y > 1f && isGrounded)
+        if (playerRigid.velocity.y > 1f && rayHit.distance > 0.6f)
         {
             animator.SetBool("isJumpUp", true);
             animator.SetBool("isJumpDown", false);
         }
-        else if (playerRigid.velocity.y < -1f && isGrounded)
+        else if (playerRigid.velocity.y < -1f && rayHit.distance > 0.6f)
         {
             animator.SetBool("isJumpUp", false);
             animator.SetBool("isJumpDown", true);
@@ -156,7 +155,6 @@ public class PlayerMove : MonoBehaviour
         {
             //점프카운트 초기화
             currntJump = 0;
-            isGrounded = true;
         }
     }
 
@@ -168,7 +166,6 @@ public class PlayerMove : MonoBehaviour
         {
             //점프한걸로 치기
             currntJump++;
-            isGrounded = false;
         }
     }
 
