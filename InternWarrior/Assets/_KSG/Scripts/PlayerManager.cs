@@ -30,12 +30,24 @@ public class PlayerManager : MonoBehaviour
     [Header("알코올 최댓값")]
     public int alcholMax = 5;
 
+    [Header("취함상태 해제 리미트 시간")]
+    public float alcholLimitTime = 10f;
+
+    [Header("현재 취함상태 해제 시간")]
+    public float currentAlcholCancelTime = 0f;
+
+    [Header("취함 상태인지 체크")]
+    public bool isAlchol = false;
+
     [Header("포스트 프로세싱 볼륨 참조")]
     public Volume postProcessingVolume;
 
     private Vignette vignette;
     private LensDistortion lensDistortion;
+    private ChromaticAberration chromaticAberration;
 
+    [Header("게임매니저 참조 (게임오버 관련)")]
+    public GameManager gameManager;
 
     private bool isStunning = false;
     private float stunTime = 0.0f;
@@ -46,6 +58,33 @@ public class PlayerManager : MonoBehaviour
     {
         // 포스트 프로세싱 초기화
         ChangeWindow(alcholCurrent);
+    }
+
+    private void Update()
+    {
+        // 취함 상태 라면
+        if (isAlchol)
+        {
+            // 알코올 해제 타이머가 작동되고
+            currentAlcholCancelTime += Time.deltaTime;
+
+            // 알코올 해제 타임이 되면 알코올 수치를 1 감소시킨다. ( 취함 상태 해제 될 동안 계속 )
+            if (currentAlcholCancelTime >= alcholLimitTime)
+            {
+                --alcholCurrent;
+                currentAlcholCancelTime = 0f;
+
+                // 포스트 프로세싱 재 설정
+                ChangeWindow(alcholCurrent);
+
+                // 알코올 카운트가 0이면 취함상태 완전 해제
+                if (alcholCurrent <= 0)
+                {
+                    alcholCurrent = 0;
+                    isAlchol = false;
+                }
+            }
+        }
     }
 
     public void SetPlayerSpeed(float value)
@@ -78,6 +117,13 @@ public class PlayerManager : MonoBehaviour
 
         // 알코올 포스트 프로세싱
         ChangeWindow(alcholCurrent);
+
+        // 게임 오버 체크
+        GameOverCheck();
+
+        // 취함 적용
+        isAlchol = true;
+        currentAlcholCancelTime = 0f;
     }
 
     public void Heal(int amount)
@@ -96,6 +142,9 @@ public class PlayerManager : MonoBehaviour
         }
         Debug.Log("체력 까임" + amount);
         Debug.Log("현재체력" + playerHp);
+
+        // 게임 오버 체크
+        GameOverCheck();
     }
 
     public void SetStun(bool stun)
@@ -114,6 +163,25 @@ public class PlayerManager : MonoBehaviour
     public float GetStunTime()
     {
         return stunTime;
+    }
+
+    /// <summary>
+    /// 알코올 값 줄이는 함수
+    /// </summary>
+    public void DecreaseAlcohol()
+    {
+
+    }
+
+    /// <summary>
+    /// 게임 오버 체크
+    /// </summary>
+    public void GameOverCheck()
+    {
+        if (playerHp <= 0 || alcholCurrent >= 5)
+        {
+            gameManager.MoveScene_GameEnd();
+        }
     }
 
     /// <summary>
@@ -184,6 +252,36 @@ public class PlayerManager : MonoBehaviour
                         break;
                 }
             }
-        }  
+        }
+
+        // Chromatic Aberration 설정
+        if (postProcessingVolume != null)
+        {
+            // Chromatic Aberration 설정
+            if (postProcessingVolume.profile.TryGet<ChromaticAberration>(out chromaticAberration))
+            {
+                switch (alchol)
+                {
+                    case 0:
+                        chromaticAberration.intensity.value = 0f;
+                        break;
+                    case 1:
+                        chromaticAberration.intensity.value = 0.2f;
+                        break;
+                    case 2:
+                        chromaticAberration.intensity.value = 0.4f;
+                        break;
+                    case 3:
+                        chromaticAberration.intensity.value = 0.6f;
+                        break;
+                    case 4:
+                        chromaticAberration.intensity.value = 0.8f;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
     }
 }

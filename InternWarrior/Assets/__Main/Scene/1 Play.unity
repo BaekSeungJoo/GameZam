@@ -329,6 +329,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8641954373197782402, guid: 695167303465ac141b00435491297c2b, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2007677916}
+    - target: {fileID: 8641954373197782402, guid: 695167303465ac141b00435491297c2b, type: 3}
       propertyPath: postProcessingVolume
       value: 
       objectReference: {fileID: 1229576577}
@@ -5696,7 +5700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackForce: 10
-  disableMovementTIme: 0.5
   stunTime: 1
   speed: 2
   moveDistance: 3
