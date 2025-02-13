@@ -143,6 +143,9 @@ public class PlayerMove : MonoBehaviour
             {
                 manager.weaponCount--;
 
+                // UI 업데이트
+                manager.InitPlayUI();
+
                 GameObject bullet = Instantiate(weapon, player.transform);
                 bullet.transform.parent = null;
             }

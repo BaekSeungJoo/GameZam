@@ -46,6 +46,9 @@ public class PlayerManager : MonoBehaviour
     private LensDistortion lensDistortion;
     private ChromaticAberration chromaticAberration;
 
+    [Header("플레이 UI 매니저 참조")]
+    public PlayUIManager playUIManager;
+
     [Header("게임매니저 참조 (게임오버 관련)")]
     public GameManager gameManager;
 
@@ -70,6 +73,13 @@ public class PlayerManager : MonoBehaviour
         // 플레이어 게임오브젝트 찾기
         player = GameObject.Find("Player");
 
+        // 데이터 초기화
+        playerHp = playerMaxHp;
+        weaponCount = 0;
+        alcholCurrent = 0;
+
+        // 데이터 UI와 연동
+        InitPlayUI();
     }
 
     private void Update()
@@ -85,6 +95,9 @@ public class PlayerManager : MonoBehaviour
             {
                 --alcholCurrent;
                 currentAlcholCancelTime = 0f;
+
+                // UI 업데이트
+                InitPlayUI();
 
                 // 포스트 프로세싱 재 설정
                 ChangeWindow(alcholCurrent);
@@ -126,6 +139,9 @@ public class PlayerManager : MonoBehaviour
     {
         weaponCount = Mathf.Min(weaponCount + amount, weaponMax);
         Debug.Log("박카스 획득함" + weaponCount);
+
+        // UI 업데이트
+        InitPlayUI();
     }
 
     public void GetAlcohol(int amount)
@@ -142,6 +158,9 @@ public class PlayerManager : MonoBehaviour
         // 취함 적용
         isAlchol = true;
         currentAlcholCancelTime = 0f;
+
+        // UI 업데이트
+        InitPlayUI();
     }
 
     public void Heal(int amount)
@@ -149,6 +168,9 @@ public class PlayerManager : MonoBehaviour
         playerHp = Mathf.Min(playerHp + amount, playerMaxHp);
         Debug.Log("체력 회복됨" + amount);
         Debug.Log("현재체력" + playerHp);
+
+        // UI 업데이트
+        InitPlayUI();
     }
 
     public void Damage(int amount)
@@ -160,6 +182,9 @@ public class PlayerManager : MonoBehaviour
         }
         Debug.Log("체력 까임" + amount);
         Debug.Log("현재체력" + playerHp);
+
+        // UI 업데이트
+        InitPlayUI();
 
         // 게임 오버 체크
         GameOverCheck();
@@ -184,11 +209,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 알코올 값 줄이는 함수
+    /// 플레이 UI를 초기화 하는 함수
     /// </summary>
-    public void DecreaseAlcohol()
+    public void InitPlayUI()
     {
-
+        playUIManager.Change_CoinText(playerHp);
+        playUIManager.Change_AlcoholText(alcholCurrent);
+        playUIManager.Change_BacchusText(weaponCount);
     }
 
     /// <summary>
