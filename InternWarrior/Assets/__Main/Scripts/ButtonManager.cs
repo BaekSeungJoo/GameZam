@@ -113,7 +113,7 @@ public class ButtonManager : MonoBehaviour
         // --------------------------------------------------
 
         // 사망 계속하기 버튼
-        continueButton.onClick.AddListener(() =>
+        Dead_ContinueButton.onClick.AddListener(() =>
         {
             // 효과음
             SoundController.PlaySFXSound("ui-button");
@@ -127,7 +127,7 @@ public class ButtonManager : MonoBehaviour
         });
 
         // 사망 게임 재시작 버튼
-        restartButton.onClick.AddListener(() =>
+        Dead_RestartButton.onClick.AddListener(() =>
         {
             // 효과음
             SoundController.PlaySFXSound("ui-button");
@@ -138,7 +138,7 @@ public class ButtonManager : MonoBehaviour
         });
 
         // 메인으로
-        goToMainButton.onClick.AddListener(() =>
+        Dead_GoToMainButton.onClick.AddListener(() =>
         {
             // 효과음
             SoundController.PlaySFXSound("ui-button");
